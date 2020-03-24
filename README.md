@@ -1,4 +1,4 @@
-# padawans
+# padawan
 
 # Skill tree
 
