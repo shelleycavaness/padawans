@@ -38,7 +38,7 @@ Create components in a database language, with a backend server : NIVEAU 2
  #### :triangular_ruler:Conception
 
 
-- [Conceptual data model](/assets/conception/)
+- [Conceptual data model](/assets/conception/mcd.svg)
 - [physical data model
   ](assets/conception/mpd.png)
 
