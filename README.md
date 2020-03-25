@@ -1,4 +1,10 @@
 
+```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
+```
 # <span style="color:#AE70AC">Padawans plateform</span>
 
 ---
