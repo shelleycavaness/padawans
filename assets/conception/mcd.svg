@@ -1,0 +1,116 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="329" height="218" view_box="0 0 329 218"
+xmlns="http://www.w3.org/2000/svg"
+xmlns:link="http://www.w3.org/1999/xlink">\n\n<desc>Généré par Mocodo 2.3.7 le Wed, 25 Mar 2020 02:40:13</desc>
+
+<rect id="frame" x="0" y="0" width="329" height="218" fill="#f7f7f7" stroke="none" stroke-width="0"/>
+
+<!-- Association contenir -->
+<line x1="158" y1="109" x2="272" y2="109" stroke="#9970ab" stroke-width="2"/>
+<text x="213" y="126.0" fill="#1b7837" font-family="Verdana" font-size="12">1,N</text>
+<line x1="272" y1="34" x2="272" y2="109" stroke="#9970ab" stroke-width="2"/>
+<text x="277.0" y="76" fill="#1b7837" font-family="Verdana" font-size="12">1,1</text>
+<g id="association-contenir">
+	<path d="M 290 84 a 14 14 90 0 1 14 14 V 109 h -64 V 98 a 14 14 90 0 1 14 -14" fill="#c2a5cf" stroke="#c2a5cf" stroke-width="0"/>
+	<path d="M 304 109.0 v 11 a 14 14 90 0 1 -14 14 H 254 a 14 14 90 0 1 -14 -14 V 109.0 H 64" fill="#e7d4e8" stroke="#e7d4e8" stroke-width="0"/>
+	<rect x="240" y="84" width="64" height="50" fill="none" rx="14" stroke="#9970ab" stroke-width="2"/>
+	<line x1="240" y1="109" x2="304" y2="109" stroke="#9970ab" stroke-width="1"/>
+	<text x="247" y="101.7" fill="#000000" font-family="Verdana" font-size="12">contenir</text>
+</g>
+
+<!-- Association Avoir -->
+<line x1="53" y1="34" x2="53" y2="109" stroke="#9970ab" stroke-width="2"/>
+<text x="58.0" y="76" fill="#1b7837" font-family="Verdana" font-size="12">0,N</text>
+<line x1="158" y1="109" x2="53" y2="109" stroke="#9970ab" stroke-width="2"/>
+<text x="81" y="126.0" fill="#1b7837" font-family="Verdana" font-size="12">0,N</text>
+<line x1="53" y1="184" x2="53" y2="109" stroke="#9970ab" stroke-width="2"/>
+<text x="58.0" y="151" fill="#1b7837" font-family="Verdana" font-size="12">1,1</text>
+<g id="association-Avoir">
+	<path d="M 62 84 a 14 14 90 0 1 14 14 V 109 h -46 V 98 a 14 14 90 0 1 14 -14" fill="#c2a5cf" stroke="#c2a5cf" stroke-width="0"/>
+	<path d="M 76 109.0 v 11 a 14 14 90 0 1 -14 14 H 44 a 14 14 90 0 1 -14 -14 V 109.0 H 46" fill="#e7d4e8" stroke="#e7d4e8" stroke-width="0"/>
+	<rect x="30" y="84" width="46" height="50" fill="none" rx="14" stroke="#9970ab" stroke-width="2"/>
+	<line x1="30" y1="109" x2="76" y2="109" stroke="#9970ab" stroke-width="1"/>
+	<text x="37" y="101.7" fill="#000000" font-family="Verdana" font-size="12">Avoir</text>
+</g>
+
+<!-- Association composer -->
+<line x1="272" y1="184" x2="158" y2="184" stroke="#9970ab" stroke-width="2"/>
+<text x="209" y="201.0" fill="#1b7837" font-family="Verdana" font-size="12">1,N</text>
+<line x1="158" y1="109" x2="158" y2="184" stroke="#9970ab" stroke-width="2"/>
+<text x="163.0" y="151" fill="#1b7837" font-family="Verdana" font-size="12">1,1</text>
+<g id="association-composer">
+	<path d="M 181 159 a 14 14 90 0 1 14 14 V 184 h -74 V 173 a 14 14 90 0 1 14 -14" fill="#c2a5cf" stroke="#c2a5cf" stroke-width="0"/>
+	<path d="M 195 184.0 v 11 a 14 14 90 0 1 -14 14 H 135 a 14 14 90 0 1 -14 -14 V 184.0 H 74" fill="#e7d4e8" stroke="#e7d4e8" stroke-width="0"/>
+	<rect x="121" y="159" width="74" height="50" fill="none" rx="14" stroke="#9970ab" stroke-width="2"/>
+	<line x1="121" y1="184" x2="195" y2="184" stroke="#9970ab" stroke-width="1"/>
+	<text x="128" y="176.7" fill="#000000" font-family="Verdana" font-size="12">composer</text>
+</g>
+
+<!-- Entity NIVEAU -->
+<g id="entity-NIVEAU">
+	<g id="frame-NIVEAU">
+		<rect x="20" y="159" width="66" height="25" fill="#a6dba0" stroke="#a6dba0" stroke-width="0"/>
+		<rect x="20" y="184.0" width="66" height="25" fill="#d9f0d3" stroke="#d9f0d3" stroke-width="0"/>
+		<rect x="20" y="159" width="66" height="50" fill="none" stroke="#5aae61" stroke-width="2"/>
+		<line x1="20" y1="184" x2="86" y2="184" stroke="#5aae61" stroke-width="1"/>
+	</g>
+	<text x="29" y="176.7" fill="#000000" font-family="Verdana" font-size="12">NIVEAU</text>
+	<text x="25" y="201.8" fill="#000000" font-family="Verdana" font-size="12">id.niveau</text>
+	<line x1="25" y1="204" x2="81" y2="204" stroke="#000000" stroke-width="1"/>
+</g>
+
+<!-- Entity MODULE -->
+<g id="entity-MODULE">
+	<g id="frame-MODULE">
+		<rect x="236" y="159" width="72" height="25" fill="#a6dba0" stroke="#a6dba0" stroke-width="0"/>
+		<rect x="236" y="184.0" width="72" height="25" fill="#d9f0d3" stroke="#d9f0d3" stroke-width="0"/>
+		<rect x="236" y="159" width="72" height="50" fill="none" stroke="#5aae61" stroke-width="2"/>
+		<line x1="236" y1="184" x2="308" y2="184" stroke="#5aae61" stroke-width="1"/>
+	</g>
+	<text x="245" y="176.7" fill="#000000" font-family="Verdana" font-size="12">MODULE</text>
+	<text x="241" y="201.8" fill="#000000" font-family="Verdana" font-size="12">id.module</text>
+	<line x1="241" y1="204" x2="302" y2="204" stroke="#000000" stroke-width="1"/>
+</g>
+
+<!-- Entity DESCRIPTION -->
+<g id="entity-DESCRIPTION">
+	<g id="frame-DESCRIPTION">
+		<rect x="224" y="9" width="96" height="25" fill="#a6dba0" stroke="#a6dba0" stroke-width="0"/>
+		<rect x="224" y="34.0" width="96" height="25" fill="#d9f0d3" stroke="#d9f0d3" stroke-width="0"/>
+		<rect x="224" y="9" width="96" height="50" fill="none" stroke="#5aae61" stroke-width="2"/>
+		<line x1="224" y1="34" x2="320" y2="34" stroke="#5aae61" stroke-width="1"/>
+	</g>
+	<text x="229" y="26.7" fill="#000000" font-family="Verdana" font-size="12">DESCRIPTION</text>
+	<text x="229" y="51.8" fill="#000000" font-family="Verdana" font-size="12">id.description</text>
+	<line x1="229" y1="54" x2="311" y2="54" stroke="#000000" stroke-width="1"/>
+</g>
+
+<!-- Entity APPRENANT -->
+<g id="entity-APPRENANT">
+	<g id="frame-APPRENANT">
+		<rect x="9" y="9" width="88" height="25" fill="#a6dba0" stroke="#a6dba0" stroke-width="0"/>
+		<rect x="9" y="34.0" width="88" height="25" fill="#d9f0d3" stroke="#d9f0d3" stroke-width="0"/>
+		<rect x="9" y="9" width="88" height="50" fill="none" stroke="#5aae61" stroke-width="2"/>
+		<line x1="9" y1="34" x2="97" y2="34" stroke="#5aae61" stroke-width="1"/>
+	</g>
+	<text x="16" y="26.7" fill="#000000" font-family="Verdana" font-size="12">APPRENANT</text>
+	<text x="14" y="51.8" fill="#000000" font-family="Verdana" font-size="12">id.apprenant</text>
+	<line x1="14" y1="54" x2="92" y2="54" stroke="#000000" stroke-width="1"/>
+</g>
+
+<!-- Entity COMPETENCE -->
+<g id="entity-COMPETENCE">
+	<g id="frame-COMPETENCE">
+		<rect x="108" y="84" width="100" height="25" fill="#a6dba0" stroke="#a6dba0" stroke-width="0"/>
+		<rect x="108" y="109.0" width="100" height="25" fill="#d9f0d3" stroke="#d9f0d3" stroke-width="0"/>
+		<rect x="108" y="84" width="100" height="50" fill="none" stroke="#5aae61" stroke-width="2"/>
+		<line x1="108" y1="109" x2="208" y2="109" stroke="#5aae61" stroke-width="1"/>
+	</g>
+	<text x="116" y="101.7" fill="#000000" font-family="Verdana" font-size="12">COMPETENCE</text>
+	<text x="113" y="126.8" fill="#000000" font-family="Verdana" font-size="12">id.competence</text>
+	<line x1="113" y1="129" x2="202" y2="129" stroke="#000000" stroke-width="1"/>
+</g>
+</svg>
