@@ -27,6 +27,18 @@ const SkillService = {
         status: 400,
         payload: { success: false, message: err }
       }));
+  },
+  getByModule: async id => {
+    return skillQueries
+      .getByModule(id)
+      .then(response => ({
+        status: 200,
+        payload: { success: true, data: response }
+      }))
+      .catch(err => ({
+        status: 400,
+        payload: { success: false, message: err }
+      }));
   }
 };
 export default SkillService;

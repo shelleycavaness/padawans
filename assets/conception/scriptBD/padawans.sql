@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mar. 24 mars 2020 à 18:45
+-- Généré le : mer. 25 mars 2020 à 23:43
 -- Version du serveur :  5.7.24
 -- Version de PHP : 7.2.19
 
@@ -25,108 +25,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `descriptions`
---
-
-CREATE TABLE `descriptions` (
-  `id` int(11) NOT NULL,
-  `content` varchar(45) DEFAULT NULL,
-  `skills_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `levels`
---
-
-CREATE TABLE `levels` (
-  `id` int(11) NOT NULL,
-  `name` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `modules`
---
-
-CREATE TABLE `modules` (
-  `id` int(11) NOT NULL,
-  `name` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `padawans`
---
-
-CREATE TABLE `padawans` (
-  `id` int(11) NOT NULL,
-  `first_name` varchar(45) NOT NULL,
-  `last_name` varchar(45) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `padawans_has_skills`
---
-
-CREATE TABLE `padawans_has_skills` (
-  `padawans_id` int(11) NOT NULL,
-  `skills_id` int(11) NOT NULL,
-  `levels_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `skills`
 --
 
 CREATE TABLE `skills` (
   `id` int(11) NOT NULL,
-  `name` varchar(45) NOT NULL,
+  `skill_name` varchar(45) NOT NULL,
   `modules_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Déchargement des données de la table `skills`
+--
+
+INSERT INTO `skills` (`id`, `skill_name`, `modules_id`) VALUES
+(1, 'skill', 1),
+(2, 'skill2', 3),
+(3, 'skill3', 3),
+(4, 'skill4', 1),
+(5, 'skill5', 3);
+
+--
 -- Index pour les tables déchargées
 --
-
---
--- Index pour la table `descriptions`
---
-ALTER TABLE `descriptions`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `levels`
---
-ALTER TABLE `levels`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `modules`
---
-ALTER TABLE `modules`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `padawans`
---
-ALTER TABLE `padawans`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `padawans_has_skills`
---
-ALTER TABLE `padawans_has_skills`
-  ADD PRIMARY KEY (`padawans_id`,`skills_id`);
 
 --
 -- Index pour la table `skills`
@@ -139,10 +60,10 @@ ALTER TABLE `skills`
 --
 
 --
--- AUTO_INCREMENT pour la table `padawans`
+-- AUTO_INCREMENT pour la table `skills`
 --
-ALTER TABLE `padawans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `skills`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
