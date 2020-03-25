@@ -1,10 +1,10 @@
-import skillQueries from "./query";
+import levelQueries from "./query";
 import jwt from "jsonwebtoken";
 import config from "../../config/server";
 
-const SkillService = {
+const LevelService = {
   getAll: async () => {
-    return skillQueries
+    return levelQueries
       .getAll()
       .then(response => ({
         status: 200,
@@ -17,20 +17,8 @@ const SkillService = {
   },
   getById: async id => {
     console.log("ici" + id);
-    return skillQueries
+    return levelQueries
       .getById(id)
-      .then(response => ({
-        status: 200,
-        payload: { success: true, data: response }
-      }))
-      .catch(err => ({
-        status: 400,
-        payload: { success: false, message: err }
-      }));
-  },
-  getByModule: async id => {
-    return skillQueries
-      .getByModule(id)
       .then(response => ({
         status: 200,
         payload: { success: true, data: response }
@@ -41,4 +29,4 @@ const SkillService = {
       }));
   }
 };
-export default SkillService;
+export default LevelService;
