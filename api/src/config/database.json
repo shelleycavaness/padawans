@@ -4,11 +4,12 @@
     "password": "",
     "database": "padawans",
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "port": "3306"
   },
   "production": {
     "username": "root",
-    "password": "",
+    "password": null,
     "database": "padawans",
     "host": "localhost",
     "dialect": "mysql"
