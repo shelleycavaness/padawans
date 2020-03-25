@@ -16,21 +16,20 @@ const Query = {
       }
     });
   },
-    getById: (id, successCallback, failureCallback) => {
+  getById: (id, successCallback, failureCallback) => {
+    let sqlQuery = `SELECT * FROM pages WHERE id=${id}`;
 
-        let sqlQuery = `SELECT * FROM pages WHERE id=${id}`;
-
-        db.query(sqlQuery, (err, rows, fields, res) => {
-            if (err) {
-                return failureCallback(err);
-            }
-            if (rows.length > 0) {
-                return successCallback(rows);
-            } else {
-                return failureCallback("No pages.");
-            }
-        });
-    }
+    db.query(sqlQuery, (err, rows, fields, res) => {
+      if (err) {
+        return failureCallback(err);
+      }
+      if (rows.length > 0) {
+        return successCallback(rows);
+      } else {
+        return failureCallback("No pages.");
+      }
+    });
+  }
 };
 
 export default Query;
