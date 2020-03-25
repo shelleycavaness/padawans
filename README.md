@@ -1,23 +1,16 @@
-<img src="assets/images/life-skills.png"
-     alt=""
-     style="float:left;margin-right: 10px; width:10%" />
+
 #<span style="color:#AE70AC">Padawans plateform</span>
 
 ---
 
-<img src="assets/images/feuille.png"
-     alt=""
-     style="float:left;margin-right: 0.3rem; width:20px" />
 ####<span style="color:#44AF1F">Description</span>
 
 This application is a simple platform to centralize our work and it concentrates on the main competencies of the French level 2 developer degree.
 
 Each student must self evaluate their level.
 
-<img src="assets/images/feuille.png"
-     alt=""
-     style="float:left;margin-right: 0.3rem; width:20px" />
-  ####<span style="color:#44AF1F">Todo</span>
+
+####<span style="color:#44AF1F">Todo</span>
 
 Stages of conception, concevoir une base de données : NIVEAU 1
 
@@ -36,15 +29,12 @@ Create components in a database language, with a backend server : NIVEAU 2
 
 - [ ] Nodejs - express - mysql
 
-<img src="assets/images/feuille.png"
-     alt=""
-     style="float:left;margin-right: 0.3rem; width:20px" /> ####<span style="color:#44AF1F">Entities</span>
+####<span style="color:#44AF1F">Entities</span>
+
 | Padawan | Skill | description | level | module | padawan has skill |
 |-----------------------------------------|--------------------|-------------|----------|----------|---------------------------------|
 | #id firstname lastname email password | #id name id.module | #id content | #id name | #id name | #(id.padawan id.skill) id.level |
-<img src="assets/images/feuille.png"
-     alt=""
-     style="float:left;margin-right: 0.3rem; width:20px" />
+
  ####<span style="color:#44AF1F">Conception
 </span>
 
