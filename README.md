@@ -56,3 +56,9 @@ un module contient 1,N competence
 une competence apartient a un seul module
 
 :arrow_right: La table competence id.module
+
+#### :email: Contacts
+:princess: shellry
+:princess: chakroun Rim
+:princess: Jega
+
