@@ -2,7 +2,7 @@
 
 ---
 
-### <span style="color:#44AF1F">Description</span>
+#### :cherry_blossom:Description
 
 
 This application is a simple platform to centralize our work and it concentrates on the main competencies of the French level 2 developer degree.
@@ -10,7 +10,7 @@ This application is a simple platform to centralize our work and it concentrates
 Each student must self evaluate their level.
 
 
-#### <span style="color:#44AF1F">Todo</span>
+#### :cherry_blossom: Todo
 
 Stages of conception, concevoir une base de données : NIVEAU 1
 
@@ -29,20 +29,20 @@ Create components in a database language, with a backend server : NIVEAU 2
 
 - [ ] Nodejs - express - mysql
 
-#### <span style="color:#44AF1F">Entities</span>
+#### :cherry_blossom: Entities
 
 | Padawan | Skill | description | level | module | padawan has skill |
 |-----------------------------------------|--------------------|-------------|----------|----------|---------------------------------|
 | #id firstname lastname email password | #id name id.module | #id content | #id name | #id name | #(id.padawan id.skill) id.level |
 
- #### <span style="color:#44AF1F">Conception
-</span>
+ #### :cherry_blossom: Conception
+
 
 - [Conceptual data model](/assets/conception/)
 - [physical data model
   ](assets/conception/mpd.png)
 
- #### <span style="color:#44AF1F">Regles</span>
+ #### :cherry_blossom: Regles
  
 un apprenant peut avoir 0,N competence
 une competence peut etre aquise par 0,N aprenant
