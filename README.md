@@ -42,7 +42,8 @@ Create components in a database language, with a backend server : NIVEAU 2
 - [physical data model
   ](assets/conception/mpd.png)
 
- ####<span style="color:#44AF1F">Regles</span>
+ #### <span style="color:#44AF1F">Regles</span>
+ 
 un apprenant peut avoir 0,N competence
 une competence peut etre aquise par 0,N aprenant
 
