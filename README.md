@@ -1,4 +1,4 @@
-# <span style="color:#AE70AC">Padawans plateform</span>
+:deciduous_tree: # Padawans plateform
 
 ---
 
