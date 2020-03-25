@@ -10,7 +10,7 @@ This application is a simple platform to centralize our work and it concentrates
 Each student must self evaluate their level.
 
 
-#### :cherry_blossom: Todo
+#### :scroll:Todo
 
 Stages of conception, concevoir une base de données : NIVEAU 1
 
@@ -29,7 +29,7 @@ Create components in a database language, with a backend server : NIVEAU 2
 
 - [ ] Nodejs - express - mysql
 
-#### :cherry_blossom: Entities
+####  📦Entities
 
 | Padawan | Skill | description | level | module | padawan has skill |
 |-----------------------------------------|--------------------|-------------|----------|----------|---------------------------------|
