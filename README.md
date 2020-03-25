@@ -1,8 +1,4 @@
-# 
-`` `html
- <span style="color:#AE70AC">Padawans plateform</span>
-`` 
-
+# <span style="color:#AE70AC">Padawans plateform</span>
 
 ---
 
