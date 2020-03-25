@@ -1,20 +1,27 @@
-# padawan
+<img src="assets/images/life-skills.png"
+     alt=""
+     style="float:left;margin-right: 10px; width:80px" /> #<span style="color:#AE70AC">Padawans plateform</span>
 
-## Skill tree
+---
 
-##Description:
+<img src="assets/images/feuille.png"
+     alt=""
+     style="float:left;margin-right: 0.3rem; width:20px" /> ####<span style="color:#44AF1F">Description</span>
+
 This application is a simple platform to centralize our work and it concentrates on the main competencies of the French level 2 developer degree.
 
 Each student must self evaluate their level.
 
-# TODO
+<img src="assets/images/feuille.png"
+     alt=""
+     style="float:left;margin-right: 0.3rem; width:20px" /> ####<span style="color:#44AF1F">Todo</span>
 
 Stages of conception, concevoir une base de données : NIVEAU 1
 
 - [x] Description de l'application, explication & pitch
-- [ ] Define different models
+- [x] Define different models
 - [x] make a database model un MCD http://www.mocodo.net/
-- [ ] Make “un MPD” - Schéma for the database-
+- [x] Make "un MPD" - Schéma for the database-
       Layout of an application: NIVEAU 2
 - [ ] Use Figma
 - [ ] wireframes / and sketches
@@ -26,90 +33,32 @@ Create components in a database language, with a backend server : NIVEAU 2
 
 - [ ] Nodejs - express - mysql
 
-# Skill tree
+<img src="assets/images/feuille.png"
+     alt=""
+     style="float:left;margin-right: 0.3rem; width:20px" /> ####<span style="color:#44AF1F">Entities</span>
+| Padawan | Skill | description | level | module | padawan has skill |
+|-----------------------------------------|--------------------|-------------|----------|----------|---------------------------------|
+| #id firstname lastname email password | #id name id.module | #id content | #id name | #id name | #(id.padawan id.skill) id.level |
+<img src="assets/images/feuille.png"
+     alt=""
+     style="float:left;margin-right: 0.3rem; width:20px" /> ####<span style="color:#44AF1F">Conception
+</span>
 
-#### Description de l'application
+- [Conceptual data model](/assets/conception/)
+- [physical data model
+  ](assets/conception/mpd.png)
 
-“Padawans” est une plateforme qui a pour but de centraliser tous les modules ainsi que toutes
-les compétences du référentiel CDA.
-Elle permet aux apprenants un suivi de leur évolution par rapport aux différentes compétences du référentiel et aux autres apprenants de leurs promotion.
-
-# TODO
-
-Étape de Conception, concevoir une base de données : NIVEAU 1
-
-- [x] Description de l'application, explication & pitch
-- [ ] Définir les différentes entités (modèles)
-- [x] Faire un MCD sur http://www.mocodo.net/
-- [ ] Faire un MPD - Schéma de base de données
-
-Maquetter une application : NIVEAU 2
-
-- [ ] Utilisation de Figma
-- [ ] Création de wireframe
-
-Mettre en place une base de données : NIVEAU 2
-
-- [ ] BD MYSQL
-- [ ] Outils - phpmyadmin
-
-Développer des composants dans le langage d'une base de données, back-end, multi-couche, composant métier : NIVEAU 2
-
-- [ ] Nodejs - express - mysql
-
-Préparer et exécuter les plans de tests d’une application : NIVEAU 2
-
-- [ ] Utilisation de postman
-- [ ] Afficher les requêtes et les résultats des fonctionnalités énoncés dans le sujet
-
-Développer la partie front-end d'une interface : NIVEAU 1 - NIVEAU 2
-
-- [ ] Mise en place d'une architecture front en React js
-- [ ] Bundler
-- [ ] Mise en place des bonnes pratiques de conception
-- [ ] Intégrations des maquettes
-
-# ENTITIES
-
-#### Apprenant
-
-- ID
-- FIRSTNAME
-- LASTNAME
-- EMAIL
-- Competences
-
-#### Competences
-
-- ID
-- TITLE
-- MODULE_ID
-- DESCRIPTION
-
-#### Modules
-
-- ID
-- TITLE
-- Competence_ID
-
-#### apprenant has competence
-
-(#(id.apprenant,id.competence),id.niveau)
-
-- MODULE_ID
-- Competence_ID
-- Apprenant_ID
-
-###
-
+<img src="assets/images/feuille.png"
+     alt=""
+     style="float:left;margin-right: 0.3rem; width:20px" /> ####<span style="color:#44AF1F">Regles</span>
 un apprenant peut avoir 0,N competence
 une competence peut etre aquise par 0,N aprenant
 
--> une relation Avoir entre apprenant et competence
+:arrow_right: une relation Avoir entre apprenant et competence
 
 pour un apprenant il a 1,1 niveau pour 1,1 competence
 pour une competence il y a 1,1 seul niveau pour 1,1 apprenant
 
 un module contient 1,N competence
 une competence apartient a un seul module
-->table competence id.module
+:arrow_right: La table competence id.module
