@@ -1,9 +1,9 @@
 
-#<span style="color:#AE70AC">Padawans plateform</span>
+# <span style="color:#AE70AC">Padawans plateform</span>
 
 ---
 
-####<span style="color:#44AF1F">Description</span>
+###<span style="color:#44AF1F">Description</span>
 
 This application is a simple platform to centralize our work and it concentrates on the main competencies of the French level 2 developer degree.
 
@@ -42,9 +42,6 @@ Create components in a database language, with a backend server : NIVEAU 2
 - [physical data model
   ](assets/conception/mpd.png)
 
-<img src="assets/images/feuille.png"
-     alt=""
-     style="float:left;margin-right: 0.3rem; width:20px" />
  ####<span style="color:#44AF1F">Regles</span>
 un apprenant peut avoir 0,N competence
 une competence peut etre aquise par 0,N aprenant
