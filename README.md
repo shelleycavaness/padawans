@@ -35,14 +35,14 @@ Create components in a database language, with a backend server : NIVEAU 2
 |-----------------------------------------|--------------------|-------------|----------|----------|---------------------------------|
 | #id firstname lastname email password | #id name id.module | #id content | #id name | #id name | #(id.padawan id.skill) id.level |
 
- #### :cherry_blossom: Conception
+ #### :triangular_ruler:Conception
 
 
 - [Conceptual data model](/assets/conception/)
 - [physical data model
   ](assets/conception/mpd.png)
 
- #### :cherry_blossom: Regles
+ #### :memo:Regles
  
 un apprenant peut avoir 0,N competence
 une competence peut etre aquise par 0,N aprenant
