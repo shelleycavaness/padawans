@@ -1,6 +1,6 @@
 <img src="assets/images/life-skills.png"
      alt=""
-     style="float:left;margin-right: 10px; width:80px" /> #<span style="color:#AE70AC">Padawans plateform</span>
+     style="float:left;margin-right: 10px; width:80px" />#<span style="color:#AE70AC">Padawans plateform</span>
 
 ---
 
