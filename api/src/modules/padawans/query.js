@@ -14,20 +14,26 @@ const Query = {
             })
         })
     },
+    getAll: () => {
+         let sqlQuery = "SELECT * FROM padawans";
+        return new Promise((resolve, reject) => {
+            db.query(sqlQuery, (err, rows) => {
+            if (err) reject(err)
+                    resolve(rows)
+                })
+            })
+        },
 
-   findById:(id, success, fail) => {
-    let sqlQuery = `SELECT * FROM padawans WHERE ID=${id}`;
+   getById:(id)=> {
+       console.log("querie: "+id)
+       let sqlQuery="SELECT * from padawans WHERE id=?"
 
-        db.query(sqlQuery, (err, rows) => {
-            if(err) { 
-                return fail(err);
-                }
-            if(rows.length > 0) { 
-                return success(rows[0])
-                }
-            else{ 
-                return success('no matching id')
-            } })     
+    return new Promise ((resolve,reject) =>{
+         db.query(sqlQuery,[id], (err, rows) => {
+             if (err) reject(err)
+             resolve(rows)
+            })
+        })
     },
     // authenticate: (user, successCallback, failureCallback) => {
 
@@ -55,15 +61,7 @@ const Query = {
     //         })
     //     })
     // },
-    getAll: () => {
-        let sqlQuery = "SELECT * FROM padawans";
-        return new Promise((resolve, reject) => {
-            db.query(sqlQuery, (err, rows) => {
-                if (err) reject(err)
-                resolve(rows)
-            })
-        })
-    }
+
 };
 
 export default Query;

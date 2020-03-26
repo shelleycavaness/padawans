@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post("/register", PadawansController.register);
 router.get("/", PadawansController.getAll);
-router.get("/:id", PadawansController.findById)
+router.get("/:id", PadawansController.getById)
 // router.post("/authenticate", UserController.authenticate);
 // router.get("/:id", UserController.findById);
 // router.get("/",authorize("admin"), UserController.getAll);
