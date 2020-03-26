@@ -1,5 +1,6 @@
 import express from "express";
 import padawanRoutes from "../modules/padawans/routes";
+import moduleRoutes from "../modules/rmodules/routes";
 import skillRoutes from "../modules/skills/routes";
 import levelRoutes from "../modules/levels/routes";
 import descriptionRoutes from "../modules/descriptions/routes";
@@ -11,7 +12,6 @@ const Router = app => {
   app.get("/", function(req, res) {
     res.send("This Route is not yet defined.");
   });
-
   //Project router
   app.use("/api/", apiRoutes);
   app.use("/api/padawans", padawanRoutes);

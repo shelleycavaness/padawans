@@ -16,7 +16,6 @@ const SkillService = {
       }));
   },
   getById: async id => {
-    console.log("ici" + id);
     return skillQueries
       .getById(id)
       .then(response => ({

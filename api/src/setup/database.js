@@ -5,8 +5,7 @@ const Connection = mysql.createConnection({
   host: databaseConfig.development.host,
   user: databaseConfig.development.username,
   password: databaseConfig.development.password,
-  database: databaseConfig.development.database,
-  port: databaseConfig.development.port
+  database: databaseConfig.development.database
 });
 //Connecting to database
 Connection.connect(err => {
@@ -17,4 +16,4 @@ Connection.connect(err => {
 
   console.log("connected as id " + Connection.threadId);
 });
-export default  Connection;
+export default Connection;

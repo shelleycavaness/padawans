@@ -11,9 +11,9 @@ const Query = {
     });
   },
   getById: id => {
-    let sqlQuery = `SELECT * FROM levels WHERE id= ${id}`;
+    let sqlQuery = `SELECT * FROM levels WHERE id= ?`;
     return new Promise((resolve, reject) => {
-      db.query(sqlQuery, (err, rows) => {
+      db.query(sqlQuery, [id], (err, rows) => {
         if (err) reject(err);
         resolve(rows);
       });

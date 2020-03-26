@@ -1,6 +1,6 @@
 import express from "express";
-import PadawansController from "./controller"
-import authorize from "../../helpers/authorize"
+import PadawansController from "./controller";
+import authorize from "../../helpers/authorize";
 const router = express.Router();
 
 router.post("/register", PadawansController.register);
@@ -8,8 +8,4 @@ router.post("/register", PadawansController.register);
 // router.get("/:id", UserController.findById);
 // router.get("/",authorize("admin"), UserController.getAll);
 
-
-
-
-
-export default router
+export default router;
