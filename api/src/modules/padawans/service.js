@@ -50,15 +50,30 @@ const PadawanService = {
 							message: err
 						}
 					}));
-			});
-
-		// getAll:async()=>{
-		//     return userQueries.getAll()
-		//     .then(response => ({ status: 200, payload: { success: true, data: response }}))
-		//         .catch(err => ({ status: 400, payload: { success: false, message: err } }));
-
-		// }
-
+			})
+	},		
+	getAll:async()=>{
+		return padawanQueries.getAll()
+		.then(response => ({ status: 200, payload: { success: true, data: response }}))
+		.catch(err => ({ status: 400, payload: { success: false, message: err } }));
+	},
+	getById: async id => {
+		console.log("service"+id)
+		return padawanQueries.getById(id)
+		  .then(response => 
+			(
+				{ status: 200,
+					 payload: { success: true, data: response }
+					}
+					))
+		  .catch(err =>
+			   (
+				   { status: 400,
+					 payload: { success: false, message: err }
+					 }
+					 )
+					 );
+	  },
 		// , authenticate: async (body) => {
 
 		//     let { username, password } = body;
@@ -88,6 +103,6 @@ const PadawanService = {
 
 		//     return { status: 403, payload: { success: false, message: 'Username & password missmatch' } }
 		//
-	}
+	
 };
 export default PadawanService;

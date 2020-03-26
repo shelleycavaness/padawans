@@ -38,6 +38,19 @@ const SkillService = {
         status: 400,
         payload: { success: false, message: err }
       }));
+  },
+  getPadawans: async id => {
+    console.log("service padawans:" + id);
+    return skillQueries
+      .getPadawans(id)
+      .then(response => ({
+        status: 200,
+        payload: { success: true, data: response }
+      }))
+      .catch(err => ({
+        status: 400,
+        payload: { success: false, message: err }
+      }));
   }
 };
 export default SkillService;

@@ -6,9 +6,6 @@ import db from "../../setup/database";
 const Query = {
   
   register:(padawan) => {
-      console.log("****Query***")
-      console.log(padawan)
-       console.log("*******")
         return new Promise((resolve, reject) => {
             let sqlQuery = "INSERT INTO padawans(first_name,last_name, email, password) values(?,?,?,?)";
             db.query(sqlQuery,[padawan.firstname, padawan.lastname, padawan.email,padawan.hashedPassword], (err, res) => {
@@ -17,15 +14,27 @@ const Query = {
             })
         })
     },
-    //  findById:(id) => {
-    //     return new Promise((resolve, reject) => {
-    //     let sqlQuery = `SELECT * FROM users WHERE id="${id}"`;
-    //         db.query(sqlQuery, (err, rows) => {
-    //             if (err) reject(err)
-    //             resolve(rows[0]);
-    //         })
-    //     })
-    // },
+    getAll: () => {
+         let sqlQuery = "SELECT * FROM padawans";
+        return new Promise((resolve, reject) => {
+            db.query(sqlQuery, (err, rows) => {
+            if (err) reject(err)
+                    resolve(rows)
+                })
+            })
+        },
+
+   getById:(id)=> {
+       console.log("querie: "+id)
+       let sqlQuery="SELECT * from padawans WHERE id=?"
+
+    return new Promise ((resolve,reject) =>{
+         db.query(sqlQuery,[id], (err, rows) => {
+             if (err) reject(err)
+             resolve(rows)
+            })
+        })
+    },
     // authenticate: (user, successCallback, failureCallback) => {
 
     //     let sqlQuery = `SELECT * FROM users WHERE username="${user.username}" AND password="${user.password}"`;
@@ -52,15 +61,7 @@ const Query = {
     //         })
     //     })
     // },
-    // getAll: () => {
-    //     let sqlQuery = "SELECT * FROM users";
-    //     return new Promise((resolve, reject) => {
-    //         db.query(sqlQuery, (err, rows) => {
-    //             if (err) reject(err)
-    //             resolve(rows)
-    //         })
-    //     })
-    // }
+
 };
 
 export default Query;

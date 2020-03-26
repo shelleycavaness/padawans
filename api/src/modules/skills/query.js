@@ -27,6 +27,31 @@ const Query = {
         resolve(rows);
       });
     });
+  },
+  getPadawans: id => {
+    console.log("padawans querie========" + id);
+
+    let sqlQuery = `
+      SELECT padawans.first_name, padawans.last_name, skills.skill_name,levels.level_name
+      FROM padawans_has_skills, padawans, skills,levels
+      WHERE padawans_has_skills.skills_id=?
+      AND
+      padawans_has_skills.padawans_id=padawans.id
+      AND 
+      skills.id=?
+      AND 
+      padawans_has_skills.levels_id=levels.id
+      ORDER BY levels.id 
+     
+       `;
+
+    return new Promise((resolve, reject) => {
+      db.query(sqlQuery, [id, id], (err, rows) => {
+        console.log(rows);
+        if (err) reject(err);
+        resolve(rows);
+      });
+    });
   }
 };
 
