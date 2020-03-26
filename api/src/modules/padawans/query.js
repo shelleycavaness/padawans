@@ -1,3 +1,5 @@
+
+
 import db from "../../setup/database";
 
 // Notre query s'occupe d'effectuer la requête sur la base de donneés et de renvoyer au service les datas
