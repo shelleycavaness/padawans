@@ -30,18 +30,21 @@ const Query = {
   },
   getPadawans: id => {
     console.log("padawans querie========" + id);
-    /*
-    padawanshasskill: id skill, id 
-         "sqlMessage": "Unknown column 'padawans.skills_id' in 'where clause'"
-    
-    */
+
     let sqlQuery = `
-      SELECT padawans.first_name, padawans.last_name, padawans_has_skills.skills_id, skills.skill_name
-      FROM padawans, padawans_has_skills, skills
-      WHERE padawans.id=padawans_has_skills.padawans_id
-      AND skills.id=?
-      AND padawans_has_skills.skills_id=?
+      SELECT padawans.first_name, padawans.last_name, skills.skill_name,levels.level_name
+      FROM padawans_has_skills, padawans, skills,levels
+      WHERE padawans_has_skills.skills_id=?
+      AND
+      padawans_has_skills.padawans_id=padawans.id
+      AND 
+      skills.id=?
+      AND 
+      padawans_has_skills.levels_id=levels.id
+      ORDER BY levels.id 
+     
        `;
+
     return new Promise((resolve, reject) => {
       db.query(sqlQuery, [id, id], (err, rows) => {
         console.log(rows);
