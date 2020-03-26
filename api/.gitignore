@@ -1,7 +1,7 @@
 #config
-/config/database.json
+config/database.json
 #setup
-/setup/database.js
+setup/database.js
 # Created by https://www.gitignore.io/api/node,windows
 # Edit at https://www.gitignore.io/?templates=node,windows
 
