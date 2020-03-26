@@ -1,8 +1,9 @@
 import express from "express";
-// import projectRoutes from "../modules/projects/routes";
-// import pageRoutes from"../modules/pages/routes";
 import padawanRoutes from "../modules/padawans/routes";
 import moduleRoutes from "../modules/rmodules/routes";
+import skillRoutes from "../modules/skills/routes";
+import levelRoutes from "../modules/levels/routes";
+
 
 const Router = app => {
 	let apiRoutes = express.Router();
@@ -12,9 +13,15 @@ const Router = app => {
 		res.send("This Route is not yet defined.");
 	});
 
-	//Project router
-	app.use("/api/", apiRoutes);
-	app.use("/api/padawans", padawanRoutes);
+
+
+
+  //Project router
+  app.use("/api/", apiRoutes);
+  app.use("/api/padawans", padawanRoutes);
+  app.use("/api/skills", skillRoutes);
+  app.use("/api/levels", levelRoutes);
+  app.use("/api/padawans", padawanRoutes);
 	app.use("/api/modules", moduleRoutes);
 
 	// app.use("/api/projects", projectRoutes);
