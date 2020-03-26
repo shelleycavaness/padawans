@@ -4,27 +4,7 @@ import jwt from "jsonwebtoken";
 import config from "../../config/server";
 
 const ModuleService = {
-	// register: async body => {
-	// 	console.log(body);
-	// 	let { name } = body;
-	// 	if (typeof name !== "string") {
-	// 		console.log("Test name of module");
-	// 		return {
-	// 			status: 400,
-	// 			payload: {
-	// 				success: false,
-	// 				message: "All fields are required and must be a string type"
-	// 			}
-	// 		}.then(module => ({
-	// 			status: 201,
-	// 			payload: {
-	// 				success: true,
-	// 				message: "Module successfully registered"
-	// 			}
-	// 		}));
-	// 	}
-	// },
-
+	
 	getAll: async () => {
 		return moduleQueries
 			.getAll()

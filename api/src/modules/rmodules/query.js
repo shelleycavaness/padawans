@@ -2,15 +2,6 @@ import db from "../../setup/database";
 
 // Notre query s'occupe d'effectuer la requête sur la base de donneés et de renvoyer au service les datas
 const Query = {
-	// register: module => {
-	// 	return new Promise((resolve, reject) => {
-	// 		let sqlQuery = "INSERT INTO modules(name) values(?)";
-	// 		db.query(sqlQuery, [module.name], (err, res) => {
-	// 			if (err) reject(err);
-	// 			resolve(res);
-	// 		});
-	// 	});
-	// },
 
 	getAll: () => {
 		let sqlQuery = "SELECT * FROM modules";
