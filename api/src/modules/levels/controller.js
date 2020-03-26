@@ -6,7 +6,6 @@ const LevelController = {
       .catch(err => res.status("400").send(err));
   },
   getById: (req, res) => {
-    console.log("req.params.id" + req.params.id);
     LevelService.getById(req.params.id)
       .then(result => res.status(result.status).send(result.payload))
       .catch(error => res.status(500).send(error));
