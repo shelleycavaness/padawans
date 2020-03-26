@@ -50,15 +50,38 @@ const PadawanService = {
 							message: err
 						}
 					}));
-			});
-
-		// getAll:async()=>{
-		//     return userQueries.getAll()
-		//     .then(response => ({ status: 200, payload: { success: true, data: response }}))
-		//         .catch(err => ({ status: 400, payload: { success: false, message: err } }));
-
-		// }
-
+			})
+	},		
+	getAll:async()=>{
+		return padawanQueries.getAll()
+		.then(response => ({ status: 200, payload: { success: true, data: response }}))
+		.catch(err => ({ status: 400, payload: { success: false, message: err } }));
+	},
+	// getById: async id => {
+	// 	return padawanQueries.getById(id)
+	// 	  .then(response => ({ status: 200, payload: { success: true, data: response }}))
+	// 	  .catch(err => ({ status: 400, payload: { success: false, message: err } }));
+	//   },
+	/////////es6///////////// 
+	getById: (id) => {
+		return new Promise((resolve, reject) => {
+		console.log('AAAAAAAAAAAAAAAAAAAAAA')	
+		 let sqlQuery = `SELECT * FROM padawans WHERE ID=${id}`;
+		 db.query(sqlQuery, (err, rows) => {
+			console.log('BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB')	 
+		   if(err) { 
+			   console.log( "ERROR", err);
+			   reject(err)
+			   }
+		   if(rows.length > 0) { 
+			   resolve(rows[0])
+			   }
+		   else{ 
+			   resolve('no matching id') 
+		   }   
+		 })  
+		})
+	   }  
 		// , authenticate: async (body) => {
 
 		//     let { username, password } = body;
@@ -88,6 +111,6 @@ const PadawanService = {
 
 		//     return { status: 403, payload: { success: false, message: 'Username & password missmatch' } }
 		//
-	}
+	
 };
 export default PadawanService;
