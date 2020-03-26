@@ -23,11 +23,11 @@ Stages of conception, concevoir une base de données : NIVEAU 1
 - [ ] wireframes / and sketches
       Mettre en place une base de données : NIVEAU 2
 - [ ] relational database MYSQL
-- [ ] Outils - phpmyadmin
+- [x] Outils - phpmyadmin
 
 Create components in a database language, with a backend server : NIVEAU 2
 
-- [ ] Nodejs - express - mysql
+- [x] Nodejs - express - mysql
 
 ####  📦Entities
 
