@@ -2,6 +2,7 @@ import express from "express";
 import padawanRoutes from "../modules/padawans/routes";
 import skillRoutes from "../modules/skills/routes";
 import levelRoutes from "../modules/levels/routes";
+import descriptionRoutes from "../modules/descriptions/routes";
 
 const Router = app => {
   let apiRoutes = express.Router();
@@ -16,9 +17,6 @@ const Router = app => {
   app.use("/api/padawans", padawanRoutes);
   app.use("/api/skills", skillRoutes);
   app.use("/api/levels", levelRoutes);
-
-  // app.use("/api/projects", projectRoutes);
-  // app.use("/api/pages", pageRoutes);
-  // app.use("/api/users", userRoutes);
+  app.use("/api/descriptions", descriptionRoutes);
 };
 export default Router;
