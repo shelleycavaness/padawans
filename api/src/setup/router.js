@@ -1,6 +1,6 @@
 import express from "express";
 import padawanRoutes from "../modules/padawans/routes";
-import moduleRoutes from "../modules/rmodules/routes";
+import moduleRoutes from "../modules/modules/routes";
 import skillRoutes from "../modules/skills/routes";
 import levelRoutes from "../modules/levels/routes";
 import descriptionRoutes from "../modules/descriptions/routes";
@@ -18,5 +18,6 @@ const Router = app => {
   app.use("/api/skills", skillRoutes);
   app.use("/api/levels", levelRoutes);
   app.use("/api/descriptions", descriptionRoutes);
+  app.use("/api/modules", moduleRoutes);
 };
 export default Router;
