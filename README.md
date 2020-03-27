@@ -10,7 +10,7 @@ This application is a simple platform to centralize our work and it concentrates
 Each student must self evaluate their level.
 
 ### :tulip:Install and setup
-First Cone the repo and do an `npm install` in the /api/ folder.
+First Clone the repo and do an `npm install` in the /api/ folder.
 Next look in the `assets/conception/scriptBD/pdawans.sql` for the sql script. Then in phpmyadmin create a new database called `padawans` (uft8_general_ci) and paste this script from pdawans.sql into the sql tab then execute! And voila! :trumpet: you are ready!
 
 
@@ -33,7 +33,7 @@ sql sever and backend server (node.js) :
 * [X] Outils - phpmyadmin / Workbench  
 * [X] Nodejs - express - mysql  
 
-Create a Frondtend interface : Level 1 - Level 2  
+Create a Front-end interface : Level 1 - Level 2  
 * [ ] React js 
 * [ ] Bundler  
 * [ ] Best practices for conception  
@@ -81,7 +81,7 @@ Elle permet aux apprenants un suivi de leur évolution par rapport aux différen
 
 ### :tulip:Install and setup
 Clone le repo et faire un `npm install` dans /api/ .
-Ensuite copier le script de sql de `assets/conception/scriptBD/pdawans.sql`. Dans phpmyadmin crée une nouvelle base nomé  `padawans`  (uft8_general_ci) et il faut coler le tab sql tab et executer ! Et voila! :trumpet: 
+Ensuite copier le script de sql de `assets/conception/scriptBD/pdawans.sql`. Dans phpmyadmin crée une nouvelle base nomé  `padawans`  (uft8_general_ci) et il faut coller le script dans le tab sql tab et executer ! Et voila! :trumpet: 
 
 #### :scroll:Todo
 
