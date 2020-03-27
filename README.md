@@ -1,7 +1,7 @@
   # :deciduous_tree: Padawans plateform
 
 ---
-
+:gb:
 #### :cherry_blossom:Description
 
 
@@ -10,8 +10,9 @@ This application is a simple platform to centralize our work and it concentrates
 Each student must self evaluate their level.
 
 ### :tulip:Install and setup
-First pull the repo and do an `npm install` in the /api/ folder.
-Next look in the `assets/conception/scriptBD/pdawans.sql` for the sql script. Then in phpmyadmin create a new database called padawans(uft8_general_ci) and paste this script from pdawans.sql into the sql tab then execute! And voila! :trumpet: you are ready!
+First Cone the repo and do an `npm install` in the /api/ folder.
+Next look in the `assets/conception/scriptBD/pdawans.sql` for the sql script. Then in phpmyadmin create a new database called `padawans` (uft8_general_ci) and paste this script from pdawans.sql into the sql tab then execute! And voila! :trumpet: you are ready!
+
 
 #### :scroll:Todo
 NIVEAU 1 
@@ -67,10 +68,9 @@ une competence apartient a un seul module
 
 ---
 
-#### :email: Contacts
 
 
-
+:fr:
 #### :cherry_blossom:Description de l'application  
 
 
@@ -80,8 +80,8 @@ Elle permet aux apprenants un suivi de leur évolution par rapport aux différen
 
 
 ### :tulip:Install and setup
-First pull the repo and do an `npm install` in the /api/ folder.
-Next look in the `assets/conception/scriptBD/pdawans.sql` for the sql script. Then in phpmyadmin create a new database called padawans(uft8_general_ci) and paste this script from pdawans.sql into the sql tab then execute! And voila! :trumpet: you are ready!
+Clone le repo et faire un `npm install` dans /api/ .
+Ensuite copier le script de sql de `assets/conception/scriptBD/pdawans.sql`. Dans phpmyadmin crée une nouvelle base nomé  `padawans`  (uft8_general_ci) et il faut coler le tab sql tab et executer ! Et voila! :trumpet: 
 
 #### :scroll:Todo
 
@@ -134,7 +134,7 @@ Développer la partie front-end d'une interface : NIVEAU 1 - NIVEAU 2
 - [physical data model
   ](assets/conception/mpd.png)
 
- #### :memo:Rules
+ #### :memo:Règles 
  
 un apprenant peut avoir 0,N competence
 une competence peut etre aquise par 0,N aprenant
