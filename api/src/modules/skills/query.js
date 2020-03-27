@@ -20,7 +20,10 @@ const Query = {
     });
   },
   getByModule: id => {
-    let sqlQuery = "SELECT * FROM skills WHERE modules_id=?";
+    let sqlQuery = `
+    SELECT skills.modules_id,modules.module_name, skills.id,skills.skill_name
+     FROM skills,modules 
+     WHERE skills.modules_id=?AND skills.modules_id=modules.id`;
     return new Promise((resolve, reject) => {
       db.query(sqlQuery, [id], (err, rows) => {
         if (err) reject(err);
@@ -29,8 +32,6 @@ const Query = {
     });
   },
   getPadawans: id => {
-    console.log("padawans querie========" + id);
-
     let sqlQuery = `
       SELECT padawans.first_name, padawans.last_name, skills.skill_name,levels.level_name
       FROM padawans_has_skills, padawans, skills,levels
@@ -47,7 +48,6 @@ const Query = {
 
     return new Promise((resolve, reject) => {
       db.query(sqlQuery, [id, id], (err, rows) => {
-        console.log(rows);
         if (err) reject(err);
         resolve(rows);
       });
