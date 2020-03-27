@@ -20,7 +20,10 @@ const Query = {
     });
   },
   getByModule: id => {
-    let sqlQuery = "SELECT * FROM skills WHERE modules_id=?";
+    let sqlQuery = `
+    SELECT skills.modules_id,modules.module_name, skills.id,skills.skill_name
+     FROM skills,modules 
+     WHERE skills.modules_id=?AND skills.modules_id=modules.id`;
     return new Promise((resolve, reject) => {
       db.query(sqlQuery, [id], (err, rows) => {
         if (err) reject(err);
