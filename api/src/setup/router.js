@@ -6,8 +6,21 @@ import levelRoutes from "../modules/levels/routes";
 import descriptionRoutes from "../modules/descriptions/routes";
 
 const Router = app => {
-  let apiRoutes = express.Router();
+	let apiRoutes = express.Router();
 
+<<<<<<< HEAD
+	// Home route. We'll end up changing this to our main front end index later.
+	app.get("/", function(req, res) {
+		res.send("This Route is not yet defined.");
+	});
+	//Project router
+	app.use("/api/", apiRoutes);
+	app.use("/api/padawans", padawanRoutes);
+	app.use("/api/skills", skillRoutes);
+	app.use("/api/levels", levelRoutes);
+	app.use("/api/descriptions", descriptionRoutes);
+	app.use("/api/modules", moduleRoutes);
+=======
   // Home route. We'll end up changing this to our main front end index later.
   app.get("/", function(req, res) {
     res.send("This Route is not yet defined.");
@@ -19,5 +32,6 @@ const Router = app => {
   app.use("/api/levels", levelRoutes);
   app.use("/api/descriptions", descriptionRoutes);
   app.use("/api/modules", moduleRoutes);
+>>>>>>> 404b5278b225c535682a6b48e8c3ea4cf38599c6
 };
 export default Router;
