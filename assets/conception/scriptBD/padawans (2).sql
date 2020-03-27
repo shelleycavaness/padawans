@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mer. 25 mars 2020 à 23:45
+-- Généré le : ven. 27 mars 2020 à 09:57
 -- Version du serveur :  5.7.24
 -- Version de PHP : 7.2.19
 
@@ -30,9 +30,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `descriptions` (
   `id` int(11) NOT NULL,
-  `content` varchar(45) DEFAULT NULL,
+  `content` varchar(45) NOT NULL,
   `skills_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `descriptions`
+--
+
+INSERT INTO `descriptions` (`id`, `content`, `skills_id`) VALUES
+(1, 'description 1 -1', 1),
+(2, 'description 2-1', 1),
+(3, 'description 1-2', 2);
 
 -- --------------------------------------------------------
 
@@ -51,7 +60,8 @@ CREATE TABLE `levels` (
 
 INSERT INTO `levels` (`id`, `level_name`) VALUES
 (1, 'level1'),
-(2, 'level2');
+(2, 'level2'),
+(3, 'level3');
 
 -- --------------------------------------------------------
 
@@ -92,7 +102,11 @@ CREATE TABLE `padawans` (
 --
 
 INSERT INTO `padawans` (`id`, `first_name`, `last_name`, `email`, `password`) VALUES
-(1, 'rim', 'chakroun', 'rim@gmail.com', '$2b$10$gc9980mksZDr7IYnUGWESOpUvX5cS898.D5FIgVRt5cNb9EtaSx9u');
+(1, 'rim', 'chakroun', 'rim@gmail.com', '$2b$10$gc9980mksZDr7IYnUGWESOpUvX5cS898.D5FIgVRt5cNb9EtaSx9u'),
+(2, 'gaby', 'gaby', 'gaby@gmail.com', 'gaby'),
+(3, 'jega', 'jega', 'jega@gmail.com', 'jega'),
+(4, 'adam', 'adam', 'adam@gmail.com', 'adam'),
+(5, 'shelley', 'shelley', 'shelley@shelley.com', 'shelley');
 
 -- --------------------------------------------------------
 
@@ -105,6 +119,32 @@ CREATE TABLE `padawans_has_skills` (
   `skills_id` int(11) NOT NULL,
   `levels_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `padawans_has_skills`
+--
+
+INSERT INTO `padawans_has_skills` (`padawans_id`, `skills_id`, `levels_id`) VALUES
+(1, 4, 1),
+(2, 1, 1),
+(4, 1, 1),
+(5, 1, 1),
+(1, 2, 2),
+(1, 3, 2),
+(2, 2, 2),
+(2, 3, 2),
+(2, 4, 2),
+(3, 2, 2),
+(3, 3, 2),
+(4, 3, 2),
+(5, 4, 2),
+(1, 1, 3),
+(3, 1, 3),
+(3, 4, 3),
+(4, 2, 3),
+(4, 4, 3),
+(5, 2, 3),
+(5, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -123,7 +163,7 @@ CREATE TABLE `skills` (
 --
 
 INSERT INTO `skills` (`id`, `skill_name`, `modules_id`) VALUES
-(1, 'skill', 1),
+(1, 'skill1', 1),
 (2, 'skill2', 3),
 (3, 'skill3', 3),
 (4, 'skill4', 1),
@@ -137,7 +177,8 @@ INSERT INTO `skills` (`id`, `skill_name`, `modules_id`) VALUES
 -- Index pour la table `descriptions`
 --
 ALTER TABLE `descriptions`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `skill_description1` (`skills_id`);
 
 --
 -- Index pour la table `levels`
@@ -161,13 +202,16 @@ ALTER TABLE `padawans`
 -- Index pour la table `padawans_has_skills`
 --
 ALTER TABLE `padawans_has_skills`
-  ADD PRIMARY KEY (`padawans_id`,`skills_id`);
+  ADD PRIMARY KEY (`padawans_id`,`skills_id`),
+  ADD KEY `padawans_has_skills_level` (`levels_id`),
+  ADD KEY `padawans_has_skills_skills` (`skills_id`);
 
 --
 -- Index pour la table `skills`
 --
 ALTER TABLE `skills`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `skills_module` (`modules_id`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -177,13 +221,13 @@ ALTER TABLE `skills`
 -- AUTO_INCREMENT pour la table `descriptions`
 --
 ALTER TABLE `descriptions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `levels`
 --
 ALTER TABLE `levels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `modules`
@@ -195,13 +239,37 @@ ALTER TABLE `modules`
 -- AUTO_INCREMENT pour la table `padawans`
 --
 ALTER TABLE `padawans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `skills`
 --
 ALTER TABLE `skills`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `descriptions`
+--
+ALTER TABLE `descriptions`
+  ADD CONSTRAINT `skill_description1` FOREIGN KEY (`skills_id`) REFERENCES `skills` (`id`);
+
+--
+-- Contraintes pour la table `padawans_has_skills`
+--
+ALTER TABLE `padawans_has_skills`
+  ADD CONSTRAINT `padawans_has_skills_level` FOREIGN KEY (`levels_id`) REFERENCES `levels` (`id`),
+  ADD CONSTRAINT `padawans_has_skills_padawans` FOREIGN KEY (`padawans_id`) REFERENCES `padawans` (`id`),
+  ADD CONSTRAINT `padawans_has_skills_skills` FOREIGN KEY (`skills_id`) REFERENCES `skills` (`id`);
+
+--
+-- Contraintes pour la table `skills`
+--
+ALTER TABLE `skills`
+  ADD CONSTRAINT `skills_module` FOREIGN KEY (`modules_id`) REFERENCES `modules` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
