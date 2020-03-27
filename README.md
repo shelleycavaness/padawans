@@ -9,6 +9,9 @@ This application is a simple platform to centralize our work and it concentrates
 
 Each student must self evaluate their level.
 
+### :tulip:Install and setup
+First pull the repo and do an `npm install` in the /api/ folder.
+Next look in the assets/conception/scriptBD/pdawans.sql for the sql script. Then in phpmyadmin create a new database called padawans(uft8_general_ci) and paste this script from pdawans.sql into the sql tab then execute! And voila! :trumpet: you are ready
 
 #### :scroll:Todo
 
