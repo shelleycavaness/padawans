@@ -149,59 +149,59 @@ une competence apartient a un seul module
  
  cliquez sur la route pour voir le test fait avec postman.
  
-✔️ [/api/padawans/register](/assets/conception/postman/)
+* [/api/padawans/register](/assets/conception/postman/)
 
 Enregistrer un nouveau apprenant, les données obligatoires à saisir sont: firstname, lastname, email et password.
 
-:o:[/api/padawans/authenticate](/assets/conception/postman/)  (fonctionnalité en cours d'implémentation) 
+* /api/padawans/authenticate  (fonctionnalité en cours d'implémentation) 
 
 l'athentification de l'apprenant, une fois authentifier il reçoit un token, l'authentification necessite la saisie de l'email et du mot de passe.
  
-✔️ [/api/padawans/](/assets/conception/postman/)
+* [/api/padawans/](/assets/conception/postman/)
 
 Affiche la liste des apprenants.
  
-✔️ [/api/padawans/register/id](/assets/conception/postman/)
+* [/api/padawans/register/id](/assets/conception/postman/)
 
 Affiche les informations d'un apprenanten renseignant son identifant.
  
-✔️ [/api/skills/](assets/conception/postman/)
+* [/api/skills/](assets/conception/postman/)
 
 Affiche la liste des compétences.
  
-✔️ [/api/skills/module/id](assets/conception/postman/)
+* [/api/skills/module/id](assets/conception/postman/)
 
 Affiche la liste des compétences d'un module, nécessite la saisie de l'identifiant du module.
  
-✔️ [/api/skills/id/padawans](assets/conception/postman/)
+* [/api/skills/id/padawans](assets/conception/postman/)
 
 Affiche liste des apprenant avec leurs niveau d'une compétence triée par niveau, nécessite la saisie de l'identifiant de la compétence.
 
-✔️ [/api/skills/id](assets/conception/postman/)
+* [/api/skills/id](assets/conception/postman/)
 
 Affiche une compétence ainsi que le nom du module qu'elle appartient, faut renseigner l'identifiant de la compétence.
 
-✔️ [/api/descriptions/skill/id](assets/conception/postman/)
+* [/api/descriptions/skill/id](assets/conception/postman/)
 
 Affiche toutes les descriptions d'une compétences, nécessite la saisie de l'identifiant de la compétence.
 
-✔️ [/api/levels/](assets/conception/postman/)
+* [/api/levels/](assets/conception/postman/)
 
 Affiche la liste des niveaux.
 
-✔️ [/api/levels/id](assets/conception/postman/)
+* [/api/levels/id](assets/conception/postman/)
 
 Affiche les information d'un niveau,  nécessite la saisie de l'identifiant du niveau.
 
-:o:[/api/level/id](/assets/conception/postman/) (fonctionnalité en cours d'implémentation) 
+* /api/level/id (fonctionnalité en cours d'implémentation) 
 
 Mettre à jour le niveau d'un apprenant.
 
-✔️ [/api/modules/](assets/conception/postman/)
+* [/api/modules/](assets/conception/postman/)
 
 Afficher la liste des modules.
 
-✔️ [/api/modules/id](assets/conception/postman/)
+* [/api/modules/id](assets/conception/postman/)
 
 Affiche les informations d'un module, faut renseigner l'identifiant du module.
 
