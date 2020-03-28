@@ -79,9 +79,12 @@ les compétences du référentiel CDA.
 Elle permet aux apprenants un suivi de leur évolution par rapport aux différentes compétences du référentiel et aux autres apprenants de leurs promotion.
 
 
-### :tulip:Install and setup
-Clone le repo et faire un `npm install` dans /api/ .
-Ensuite copier le script de sql de `assets/conception/scriptBD/pdawans.sql`. Dans phpmyadmin crée une nouvelle base nomé  `padawans`  (uft8_general_ci) et il faut coller le script dans le tab sql tab et executer ! Et voila! :trumpet: 
+### :tulip:Installation
+Cloner le repo, executer la commande `npm install` permettant d'installer les dependences.
+Le projet utilise une base de données mysql.
+Dans phpmyadmin crée une nouvelle base de données  `padawans`  (uft8_general_ci)  
+Ensuite executer le script sql  `assets/conception/scriptBD/pdawans.sql` 
+Et voila le tour est joué! :trumpet: 
 
 #### :scroll:Todo
 
@@ -113,14 +116,6 @@ Développer la partie front-end d'une interface : NIVEAU 1 - NIVEAU 2
 * [ ] Mise en place des bonnes pratiques de conception  
 * [ ] Intégrations des maquettes  
 
-
-
-
-
-
-
-
-
 ####  📦Entities
 
 | Padawan | Skill | description | level | module | padawan has skill |
@@ -148,6 +143,67 @@ un module contient 1,N competence
 une competence apartient a un seul module
 
 :arrow_right: La table competence id.module
+
+
+ #### :see_no_evil:Back-end: Description API
+ 
+ cliquez sur la route pour voir le test fait avec postman.
+ 
+✔️ [/api/padawans/register](/assets/conception/postman/)
+
+Enregistrer un nouveau apprenant, les données obligatoires à saisir sont: firstname, lastname, email et password.
+
+:o:[/api/padawans/authenticate](/assets/conception/postman/)  (fonctionnalité en cours d'implémentation) 
+
+l'athentification de l'apprenant, une fois authentifier il reçoit un token, l'authentification necessite la saisie de l'email et du mot de passe.
+ 
+✔️ [/api/padawans/](/assets/conception/postman/)
+
+Affiche la liste des apprenants.
+ 
+✔️ [/api/padawans/register/id](/assets/conception/postman/)
+
+Affiche les informations d'un apprenanten renseignant son identifant.
+ 
+✔️ [/api/skills/](assets/conception/postman/)
+
+Affiche la liste des compétences.
+ 
+✔️ [/api/skills/module/id](assets/conception/postman/)
+
+Affiche la liste des compétences d'un module, nécessite la saisie de l'identifiant du module.
+ 
+✔️ [/api/skills/id/padawans](assets/conception/postman/)
+
+Affiche liste des apprenant avec leurs niveau d'une compétence triée par niveau, nécessite la saisie de l'identifiant de la compétence.
+
+✔️ [/api/skills/id](assets/conception/postman/)
+
+Affiche une compétence ainsi que le nom du module qu'elle appartient, faut renseigner l'identifiant de la compétence.
+
+✔️ [/api/descriptions/skill/id](assets/conception/postman/)
+
+Affiche toutes les descriptions d'une compétences, nécessite la saisie de l'identifiant de la compétence.
+
+✔️ [/api/levels/](assets/conception/postman/)
+
+Affiche la liste des niveaux.
+
+✔️ [/api/levels/id](assets/conception/postman/)
+
+Affiche les information d'un niveau,  nécessite la saisie de l'identifiant du niveau.
+
+:o:[/api/level/id](/assets/conception/postman/) (fonctionnalité en cours d'implémentation) 
+
+Mettre à jour le niveau d'un apprenant.
+
+✔️ [/api/modules/](assets/conception/postman/)
+
+Afficher la liste des modules.
+
+✔️ [/api/modules/id](assets/conception/postman/)
+
+Affiche les informations d'un module, faut renseigner l'identifiant du module.
 
 ---
 
