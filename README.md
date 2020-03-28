@@ -205,6 +205,12 @@ Afficher la liste des modules.
 
 Affiche les informations d'un module, faut renseigner l'identifiant du module.
 
+### 🙉 :hear_no_evil:	Front-end
+
+Premiere idée d'une maquette faite sur papier [voici à quoi ça ressemble](/assets/images/)
+
+La date prévu pour commmencer le developpement de la partie front-end est  le 20/04/2020
+
 ---
 
 #### :email: Contacts
