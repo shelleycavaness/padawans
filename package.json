@@ -1,26 +1,25 @@
 {
-  "name": "portfolio",
+  "name": "skill-tree-front",
   "version": "1.0.0",
-  "description": "",
+  "description": "--- :gb: #### :cherry_blossom:Description",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-dev": "parcel ./src/index.html"
+    "dev": "parcel ./src/index.html "
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/rimIlmia/portfolio.git"
+    "url": "git+https://github.com/shelleycavaness/padawans.git"
   },
-  "author": "",
+  "author": "shelley",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/rimIlmia/portfolio/issues"
+    "url": "https://github.com/shelleycavaness/padawans/issues"
   },
-  "homepage": "https://gitlab.com/rimIlmia/portfolio#readme",
+  "homepage": "https://github.com/shelleycavaness/padawans#readme",
   "dependencies": {
-    "parcel-bundler": "^1.12.4"
-  },
-  "devDependencies": {
-    "less": "^3.11.1"
+    "parcel-bundler": "^1.12.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
