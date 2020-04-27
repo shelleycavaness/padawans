@@ -1,26 +1,32 @@
 {
-  "name": "portfolio",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start-dev": "parcel ./src/index.html"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/rimIlmia/portfolio.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://gitlab.com/rimIlmia/portfolio/issues"
-  },
-  "homepage": "https://gitlab.com/rimIlmia/portfolio#readme",
-  "dependencies": {
-    "parcel-bundler": "^1.12.4"
-  },
-  "devDependencies": {
-    "less": "^3.11.1"
-  }
+	"name": "portfolio",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start-dev": "parcel ./src/index.html"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://gitlab.com/rimIlmia/portfolio.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://gitlab.com/rimIlmia/portfolio/issues"
+	},
+	"homepage": "https://gitlab.com/rimIlmia/portfolio#readme",
+	"dependencies": {
+		"auth": "0.0.9",
+		"axios": "^0.19.2",
+		"parcel-bundler": "^1.12.4",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+    "save": "^2.4.0"
+    
+	},
+	"devDependencies": {
+		"less": "^3.11.1"
+	}
 }
