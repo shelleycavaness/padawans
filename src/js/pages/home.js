@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import api from "../utils/api";
+
 const Home = (props) => {
   const [padawans, setPadawans] = useState([
     "Alex",
@@ -11,6 +13,7 @@ const Home = (props) => {
     "shelley",
     "rim",
   ]);
+  api.get("/skills/").then((response) => console.log(response));
   const getRandomArbitrary = (min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);
