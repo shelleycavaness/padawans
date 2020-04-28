@@ -7,9 +7,6 @@ const Login = (props) => {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState(null);
-
-  console.log("email: ", email);
-  console.log("password: ", password);
   const handleSubmit = (event) => {
     setIsLoading(true);
     let body = {
@@ -23,10 +20,11 @@ const Login = (props) => {
         addAuth(response.data.data.token);
         setMessage(response.data.message);
         setPadawanLocalStorage(response.data.data.padawan[0]);
+        props.setPadawan(response.data.data.padawan[0]);
+        window.location.href = "/";
       })
       .catch((error) => {
-        setIsLoading(false);
-        setMessage(error.response.data.message);
+        return setMessage(error.response.data.message);
       })
       .finally(() => {
         setIsLoading(false);
