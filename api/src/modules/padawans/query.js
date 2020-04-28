@@ -1,7 +1,7 @@
 import db from "../../setup/database";
 
 const Query = {
-  register: padawan => {
+  register: (padawan) => {
     return new Promise((resolve, reject) => {
       let sqlQuery =
         "INSERT INTO padawans(first_name,last_name, email, password) values(?,?,?,?)";
@@ -11,7 +11,7 @@ const Query = {
           padawan.firstname,
           padawan.lastname,
           padawan.email,
-          padawan.hashedPassword
+          padawan.hashedPassword,
         ],
         (err, res) => {
           if (err) reject(err);
@@ -30,7 +30,7 @@ const Query = {
     });
   },
 
-  getById: id => {
+  getById: (id) => {
     let sqlQuery = "SELECT * from padawans WHERE id=?";
 
     return new Promise((resolve, reject) => {
@@ -39,23 +39,31 @@ const Query = {
         resolve(rows);
       });
     });
-  }
-  // authenticate: (user, successCallback, failureCallback) => {
+  },
+  getByEmail: (email) => {
+    let sqlQuery = "SELECT * from padawans WHERE email=?";
 
-  //     let sqlQuery = `SELECT * FROM users WHERE username="${user.username}" AND password="${user.password}"`;
+    return new Promise((resolve, reject) => {
+      db.query(sqlQuery, [email], (err, rows) => {
+        if (err) reject(err);
+        resolve(rows);
+      });
+    });
+  },
+  authenticate: (padawan, successCallback, failureCallback) => {
+    let sqlQuery = `SELECT * FROM padawans WHERE email="${padawan.email}" AND password="${padawan.password}"`;
 
-  //     db.query(sqlQuery, (err, rows) => {
-
-  //         if (err) {
-  //             return failureCallback(err);
-  //         }
-  //         if (rows.length > 0) {
-  //             return successCallback(rows[0]);
-  //         } else {
-  //             return successCallback("Incorrect username or password combinaison");
-  //         }
-  //     })
-  // },
+    db.query(sqlQuery, (err, rows) => {
+      if (err) {
+        return failureCallback(err);
+      }
+      if (rows.length > 0) {
+        return successCallback(rows[0]);
+      } else {
+        return successCallback("Incorrect username or password combinaison");
+      }
+    });
+  },
   // getByUsername: (username) => {
   //     let sqlQuery = "SELECT * FROM users WHERE username=?";
 
