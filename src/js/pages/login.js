@@ -22,7 +22,7 @@ const Login = (props) => {
       .then((response) => {
         addAuth(response.data.data.token);
         setMessage(response.data.message);
-        setPadawanLocalStorage(response.data.data);
+        setPadawanLocalStorage(response.data.data.padawan[0]);
       })
       .catch((error) => {
         setIsLoading(false);

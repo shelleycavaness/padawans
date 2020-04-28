@@ -6,6 +6,8 @@ const Header = (props) => {
   console.log("props header: ", props);
   return (
     <header>
+      <h1>{props.title}</h1>
+
       <nav>
         <ul>
           <li>
@@ -16,6 +18,9 @@ const Header = (props) => {
           </li>
         </ul>
       </nav>
+      <button onClick={() => props.onChangeHeaderTitle("New header title")}>
+        Change header title
+      </button>
     </header>
   );
 };
