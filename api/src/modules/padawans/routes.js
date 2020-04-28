@@ -6,7 +6,6 @@ const router = express.Router();
 router.post("/register", PadawansController.register);
 router.get("/", PadawansController.getAll);
 router.get("/:id", PadawansController.getById);
-
-// router.post("/authenticate", PadawanController.authenticate);
+router.post("/authenticate", PadawansController.authenticate);
 
 export default router;
