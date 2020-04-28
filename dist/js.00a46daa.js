@@ -28312,41 +28312,59 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var Home = function Home(props) {
-  var _useState = (0, _react.useState)(["Alex", "thibault", "clem", "elena", "jega", "julien", "lilan", "shelley", "rim"]),
+  var _useState = (0, _react.useState)(["Alexandre", "Thibault", "Clémence", "Elena", "Jega", "Julien", "Lilian", "Rim", "Shelley"]),
       _useState2 = _slicedToArray(_useState, 2),
       padawans = _useState2[0],
       setPadawans = _useState2[1];
 
-  var getRandomArbitrary = function getRandomArbitrary(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  };
-
-  var randomList = function randomList() {
-    var arrayPadawans = padawans;
-    var result = [];
-
-    while (arrayPadawans.length > 0) {
-      var numberRand = getRandomArbitrary(1, arrayPadawans.length);
-      result.push(arrayPadawans[numberRand - 1]);
-      arrayPadawans.splice(numberRand - 1, 1);
-    }
-
-    setPadawans(result);
-  };
-
-  var listPadawans = padawans.map(function (padawan, index) {
+  return /*#__PURE__*/_react.default.createElement("ul", null, padawans.map(function (padawan) {
     return /*#__PURE__*/_react.default.createElement("li", {
-      key: index
+      key: padawan
     }, padawan);
-  });
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Home"), /*#__PURE__*/_react.default.createElement("ul", null, listPadawans), /*#__PURE__*/_react.default.createElement("button", {
-    onClick: randomList
-  }, " randam"));
+  }));
 };
 
-var _default = Home;
+var _default = Home; // import React, { useState } from "react";
+// const Home = (props) => {
+//   const [padawans, setPadawans] = useState([
+//     "Alex",
+//     "thibault",
+//     "clem",
+//     "elena",
+//     "jega",
+//     "julien",
+//     "lilan",
+//     "shelley",
+//     "rim",
+//   ]);
+//   const getRandomArbitrary = (min, max) => {
+//     min = Math.ceil(min);
+//     max = Math.floor(max);
+//     return Math.floor(Math.random() * (max - min + 1)) + min;
+//   };
+//   const randomList = () => {
+//     let arrayPadawans = padawans;
+//     let result = [];
+//     while (arrayPadawans.length > 0) {
+//       let numberRand = getRandomArbitrary(1, arrayPadawans.length);
+//       result.push(arrayPadawans[numberRand - 1]);
+//       arrayPadawans.splice(numberRand - 1, 1);
+//     }
+//     setPadawans(result);
+//   };
+//   const listPadawans = padawans.map((padawan, index) => (
+//     <li key={index}>{padawan}</li>
+//   ));
+//   return (
+//     <div>
+//       <h1>Home</h1>
+//       <ul>{listPadawans}</ul>
+//       <button onClick={randomList}> randam</button>
+//     </div>
+//   );
+// };
+// export default Home;
+
 exports.default = _default;
 },{"react":"../node_modules/react/index.js"}],"js/pages/login.js":[function(require,module,exports) {
 "use strict";
@@ -32418,7 +32436,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59397" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49310" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
