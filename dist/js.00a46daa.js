@@ -34275,7 +34275,8 @@ var Register = function Register() {
     _api.default.post("/padawans/register", body).then(function (response) {
       setSuccess(true);
     }).catch(function (error) {
-      setMessageError(error.response);
+      console.log(error.response.data.message.sqlMessage);
+      setMessageError(error.response.data.message.sqlMessage);
     }).finally(function () {
       setIsLoading(false);
     });

@@ -20,7 +20,8 @@ const Register = () => {
         setSuccess(true);
       })
       .catch((error) => {
-        setMessageError(error.response);
+        console.log(error.response.data.message.sqlMessage);
+        setMessageError(error.response.data.message.sqlMessage);
       })
       .finally(() => {
         setIsLoading(false);
