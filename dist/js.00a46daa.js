@@ -30111,19 +30111,22 @@ var Skills = function Skills() {
 
   (0, _react.useEffect)(function () {
     _api.default.get("/skills/").then(function (response) {
-      console.log("+++++++Array skills+++++");
-      var skills = [];
-      response.data.data.forEach(function (element) {
-        skills.push(element);
-      });
-      setArraySkills(skills);
+      setArraySkills(response.data.data);
     }); //   .catch();
 
-  }, []); //   const displaySkills = () => {
-  //     arraySkills.map((skill, index) => <li key={index}>{skill}</li>);
-  //   };
+  }, []);
 
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Les Skills "), /*#__PURE__*/_react.default.createElement("p", null, "ici skills: ", arraySkills.length));
+  var displaySkills = function displaySkills() {
+    return arraySkills.map(function (skill, index) {
+      return /*#__PURE__*/_react.default.createElement("li", {
+        key: index
+      }, skill.id);
+    });
+  };
+
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Les Skills "), /*#__PURE__*/_react.default.createElement("p", null, "ici skills: ", function () {
+    return displaySkills;
+  }));
 };
 
 var _default = Skills;

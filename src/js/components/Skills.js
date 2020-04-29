@@ -7,24 +7,19 @@ const Skills = () => {
   // useEffect() prepare la data pour ensuite etre affichee
   useEffect(() => {
     api.get("/skills/").then((response) => {
-      console.log("+++++++Array skills+++++");
-      let skills = [];
-      response.data.data.forEach((element) => {
-        skills.push(element);
-      });
-      setArraySkills(skills);
+      setArraySkills(response.data.data);
     });
     //   .catch();
   }, []);
 
-  //   const displaySkills = () => {
-  //     arraySkills.map((skill, index) => <li key={index}>{skill}</li>);
-  //   };
+  const displaySkills = () => {
+    return arraySkills.map((skill, index) => <li key={index}>{skill.id}</li>);
+  };
 
   return (
     <div>
       <h1>Les Skills </h1>
-      <p>ici skills: {arraySkills.length}</p>
+      <p>ici skills: {() => displaySkills}</p>
     </div>
   );
 };
