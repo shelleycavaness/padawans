@@ -30412,7 +30412,7 @@ var Register = function Register(props) {
     required: true
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: ""
-  }, /*#__PURE__*/_react.default.createElement("label", null, "Username"), /*#__PURE__*/_react.default.createElement("input", {
+  }, /*#__PURE__*/_react.default.createElement("label", null, "Email"), /*#__PURE__*/_react.default.createElement("input", {
     onChange: function onChange(event) {
       return setEmail(event.target.value);
     },

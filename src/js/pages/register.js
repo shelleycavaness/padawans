@@ -12,6 +12,7 @@ const Register = (props) => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		setIsLoading(true);
+
 		let body = {
 			firstname,
 			lastname,
@@ -57,7 +58,7 @@ const Register = (props) => {
 						/>
 					</div>
 					<div className="">
-						<label>Username</label>
+						<label>Email</label>
 						<input
 							onChange={(event) => setEmail(event.target.value)}
 							type="text"
