@@ -12,7 +12,7 @@ const Register = () => {
 
   const handelSubmit = (event) => {
     event.preventDefault();
-    setIsLoading = true;
+    setIsLoading(true);
     let body = { firstname, lastname, email, password };
     api
       .post("/padawans/register", body)

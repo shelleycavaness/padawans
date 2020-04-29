@@ -34226,8 +34226,6 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _readOnlyError(name) { throw new Error("\"" + name + "\" is read-only"); }
-
 var Register = function Register() {
   var _useState = (0, _react.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
@@ -34266,7 +34264,7 @@ var Register = function Register() {
 
   var handelSubmit = function handelSubmit(event) {
     event.preventDefault();
-    setIsLoading = (_readOnlyError("setIsLoading"), true);
+    setIsLoading(true);
     var body = {
       firstname: firstname,
       lastname: lastname,
