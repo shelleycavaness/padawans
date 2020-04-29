@@ -10,6 +10,7 @@ const Login = (props) => {
 
   console.log("email: ", email);
   console.log("password: ", password);
+
   const handleSubmit = (event) => {
     setIsLoading(true);
     let body = {
@@ -17,16 +18,20 @@ const Login = (props) => {
       password,
     };
     event.preventDefault();
+    /*api remplace axios.create({
+  baseURL: "http://localhost:3010/api",
+})*/
     api
       .post("/padawans/authenticate", body)
       .then((response) => {
+        // Dans preview de network de notre navigateur on vois juste response.data
         addAuth(response.data.data.token);
         setMessage(response.data.message);
         setPadawanLocalStorage(response.data.data);
+        // window.localStorage("user", response.data.data);
       })
       .catch((error) => {
-        setIsLoading(false);
-        setMessage(error.response.data.message);
+        return setMessage(error.response.data.message);
       })
       .finally(() => {
         setIsLoading(false);
@@ -39,7 +44,7 @@ const Login = (props) => {
       ) : (
         <form onSubmit={handleSubmit}>
           <div className="">
-            <label>Username</label>
+            <label>Email</label>
             <input
               onChange={(event) => setEmail(event.target.value)}
               type="text"

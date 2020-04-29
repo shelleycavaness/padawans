@@ -30229,14 +30229,17 @@ var Login = function Login(props) {
       password: password
     };
     event.preventDefault();
+    /*api remplace axios.create({
+    baseURL: "http://localhost:3010/api",
+    })*/
 
     _api.default.post("/padawans/authenticate", body).then(function (response) {
+      // Dans preview de network de notre navigateur on vois juste response.data
       (0, _api.addAuth)(response.data.data.token);
       setMessage(response.data.message);
-      (0, _localStorage.setPadawanLocalStorage)(response.data.data);
+      (0, _localStorage.setPadawanLocalStorage)(response.data.data); // window.localStorage("user", response.data.data);
     }).catch(function (error) {
-      setIsLoading(false);
-      setMessage(error.response.data.message);
+      return setMessage(error.response.data.message);
     }).finally(function () {
       setIsLoading(false);
     });
@@ -30248,7 +30251,7 @@ var Login = function Login(props) {
     onSubmit: handleSubmit
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: ""
-  }, /*#__PURE__*/_react.default.createElement("label", null, "Username"), /*#__PURE__*/_react.default.createElement("input", {
+  }, /*#__PURE__*/_react.default.createElement("label", null, "Email"), /*#__PURE__*/_react.default.createElement("input", {
     onChange: function onChange(event) {
       return setEmail(event.target.value);
     },
@@ -34185,13 +34188,135 @@ var Header = function Header(props) {
   return /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("nav", null, /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/"
   }, "Home")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/register"
+  }, "S'enregistrer")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/login"
   }, "Login")))));
 };
 
 var _default = Header;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"js/App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"js/pages/register.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _api = _interopRequireDefault(require("../utils/api"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _readOnlyError(name) { throw new Error("\"" + name + "\" is read-only"); }
+
+var Register = function Register() {
+  var _useState = (0, _react.useState)(""),
+      _useState2 = _slicedToArray(_useState, 2),
+      firstname = _useState2[0],
+      setFirstname = _useState2[1];
+
+  var _useState3 = (0, _react.useState)(""),
+      _useState4 = _slicedToArray(_useState3, 2),
+      lastname = _useState4[0],
+      setLastname = _useState4[1];
+
+  var _useState5 = (0, _react.useState)(""),
+      _useState6 = _slicedToArray(_useState5, 2),
+      email = _useState6[0],
+      setEmail = _useState6[1];
+
+  var _useState7 = (0, _react.useState)(""),
+      _useState8 = _slicedToArray(_useState7, 2),
+      password = _useState8[0],
+      setPassword = _useState8[1];
+
+  var _useState9 = (0, _react.useState)(false),
+      _useState10 = _slicedToArray(_useState9, 2),
+      isLoading = _useState10[0],
+      setIsLoading = _useState10[1];
+
+  var _useState11 = (0, _react.useState)(false),
+      _useState12 = _slicedToArray(_useState11, 2),
+      success = _useState12[0],
+      setSuccess = _useState12[1];
+
+  var _useState13 = (0, _react.useState)(""),
+      _useState14 = _slicedToArray(_useState13, 2),
+      messageError = _useState14[0],
+      setMessageError = _useState14[1];
+
+  var handelSubmit = function handelSubmit(event) {
+    event.preventDefault();
+    setIsLoading = (_readOnlyError("setIsLoading"), true);
+    var body = {
+      firstname: firstname,
+      lastname: lastname,
+      email: email,
+      password: password
+    };
+
+    _api.default.post("/padawans/register", body).then(function (response) {
+      setSuccess(true);
+    }).catch(function (error) {
+      setMessageError(error.response);
+    }).finally(function () {
+      setIsLoading(false);
+    });
+  };
+
+  return /*#__PURE__*/_react.default.createElement("div", null, success ? /*#__PURE__*/_react.default.createElement("span", null, "Vous etes bien enregistr\xE9") : /*#__PURE__*/_react.default.createElement("div", null, isLoading ? /*#__PURE__*/_react.default.createElement("span", null, "\"Enregistrement en cours...\"") : /*#__PURE__*/_react.default.createElement("form", {
+    onSubmit: handelSubmit
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("label", null, "Firstname"), /*#__PURE__*/_react.default.createElement("input", {
+    onChange: function onChange(event) {
+      return setFirstname(event.target.value);
+    },
+    type: "text",
+    required: true
+  })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("label", null, "Lastname"), /*#__PURE__*/_react.default.createElement("input", {
+    onChange: function onChange(event) {
+      return setLastname(event.target.value);
+    },
+    type: "text",
+    required: true
+  })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("label", null, "Email"), /*#__PURE__*/_react.default.createElement("input", {
+    onChange: function onChange(event) {
+      return setEmail(event.target.value);
+    },
+    type: "email",
+    required: true
+  })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("label", null, "Password"), /*#__PURE__*/_react.default.createElement("input", {
+    onChange: function onChange(event) {
+      return setPassword(event.target.value);
+    },
+    type: "password",
+    required: true
+  })), /*#__PURE__*/_react.default.createElement("div", null, " ", messageError && /*#__PURE__*/_react.default.createElement("span", null, messageError)), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
+    type: "submit"
+  }, "S'enregistrer")))));
+};
+
+var _default = Register;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","../utils/api":"js/utils/api.js"}],"js/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34207,6 +34332,8 @@ var _login = _interopRequireDefault(require("./pages/login"));
 
 var _Header = _interopRequireDefault(require("./components/Header"));
 
+var _register = _interopRequireDefault(require("./pages/register"));
+
 var _reactRouterDom = require("react-router-dom");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -34215,6 +34342,8 @@ var App = function App() {
   return /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/login"
   }, /*#__PURE__*/_react.default.createElement(_login.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    path: "/register"
+  }, /*#__PURE__*/_react.default.createElement(_register.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     exact: true,
     path: "/"
   }, /*#__PURE__*/_react.default.createElement(_home.default, null)))));
@@ -34222,7 +34351,7 @@ var App = function App() {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./pages/home":"js/pages/home.js","./pages/login":"js/pages/login.js","./components/Header":"js/components/Header.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"js/index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./pages/home":"js/pages/home.js","./pages/login":"js/pages/login.js","./components/Header":"js/components/Header.js","./pages/register":"js/pages/register.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"js/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -34264,7 +34393,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50271" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55250" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
