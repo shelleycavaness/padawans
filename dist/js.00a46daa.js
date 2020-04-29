@@ -30108,8 +30108,20 @@ var Home = function Home(props) {
       padawans = _useState2[0],
       setPadawans = _useState2[1];
 
-  _api.default.get("/skills/").then(function (response) {
-    return console.log(response);
+  var _useState3 = (0, _react.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      skills = _useState4[0],
+      setSkills = _useState4[1];
+
+  (0, _react.useEffect)(function () {
+    _api.default.get("/skills/").then(function (response) {
+      setSkills(response.data.data);
+    });
+  }, []);
+  var listSkills = skills.map(function (skill, index) {
+    return /*#__PURE__*/_react.default.createElement("li", {
+      key: index
+    }, skill.id);
   });
 
   var getRandomArbitrary = function getRandomArbitrary(min, max) {
@@ -30136,7 +30148,7 @@ var Home = function Home(props) {
       key: index
     }, padawan);
   });
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Home"), /*#__PURE__*/_react.default.createElement("ul", null, listPadawans), /*#__PURE__*/_react.default.createElement("button", {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Home"), /*#__PURE__*/_react.default.createElement("ul", null, listPadawans), /*#__PURE__*/_react.default.createElement("ul", null, listSkills), /*#__PURE__*/_react.default.createElement("button", {
     onClick: randomList
   }, " randam"));
 };
@@ -34454,7 +34466,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50183" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64287" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

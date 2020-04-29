@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import api from "../utils/api";
 
 const Home = (props) => {
@@ -13,7 +13,17 @@ const Home = (props) => {
     "shelley",
     "rim",
   ]);
-  api.get("/skills/").then((response) => console.log(response));
+  const [skills, setSkills] = useState([]);
+  useEffect(() => {
+    api.get("/skills/").then((response) => {
+      setSkills(response.data.data);
+    });
+  }, []);
+
+  const listSkills = skills.map((skill, index) => (
+    <li key={index}>{skill.id}</li>
+  ));
+
   const getRandomArbitrary = (min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -36,6 +46,8 @@ const Home = (props) => {
     <div>
       <h1>Home</h1>
       <ul>{listPadawans}</ul>
+      <ul>{listSkills}</ul>
+
       <button onClick={randomList}> randam</button>
     </div>
   );
