@@ -30116,17 +30116,17 @@ var Skills = function Skills() {
 
   }, []);
 
-  var displaySkills = function displaySkills() {
-    return arraySkills.map(function (skill, index) {
-      return /*#__PURE__*/_react.default.createElement("li", {
-        key: index
-      }, skill.id);
-    });
-  };
+  var _useState3 = (0, _react.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      skills = _useState4[0],
+      setSkills = _useState4[1];
 
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Les Skills "), /*#__PURE__*/_react.default.createElement("p", null, "ici skills: ", function () {
-    return displaySkills;
-  }));
+  var displaySkills = arraySkills.map(function (skill, index) {
+    return /*#__PURE__*/_react.default.createElement("li", {
+      key: index
+    }, skill.id);
+  });
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Les Skills "), /*#__PURE__*/_react.default.createElement("ul", null, " ", displaySkills));
 };
 
 var _default = Skills;
@@ -34454,7 +34454,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62517" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64541" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

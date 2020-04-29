@@ -11,15 +11,16 @@ const Skills = () => {
     });
     //   .catch();
   }, []);
+  const [skills, setSkills] = useState([]);
 
-  const displaySkills = () => {
-    return arraySkills.map((skill, index) => <li key={index}>{skill.id}</li>);
-  };
+  const displaySkills = arraySkills.map((skill, index) => (
+    <li key={index}>{skill.id}</li>
+  ));
 
   return (
     <div>
       <h1>Les Skills </h1>
-      <p>ici skills: {() => displaySkills}</p>
+      <ul> {displaySkills}</ul>
     </div>
   );
 };
