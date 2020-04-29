@@ -9,6 +9,7 @@ const Register = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [messageError, setMessageError] = useState("");
+  const [messageSuccess, setMessageSuccess] = useState("");
 
   const handelSubmit = (event) => {
     event.preventDefault();
@@ -20,7 +21,6 @@ const Register = () => {
         setSuccess(true);
       })
       .catch((error) => {
-        console.log(error.response.data.message.sqlMessage);
         setMessageError(error.response.data.message.sqlMessage);
       })
       .finally(() => {
@@ -31,7 +31,7 @@ const Register = () => {
   return (
     <div>
       {success ? (
-        <span>Vous etes bien enregistré</span>
+        <span>{messageSuccess && <span>{messageSuccess}</span>}</span>
       ) : (
         <div>
           {isLoading ? (

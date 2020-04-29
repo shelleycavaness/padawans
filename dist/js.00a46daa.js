@@ -30072,7 +30072,7 @@ var addAuth = function addAuth(token) {
 exports.addAuth = addAuth;
 var _default = instance;
 exports.default = _default;
-},{"axios":"../node_modules/axios/index.js"}],"js/pages/home.js":[function(require,module,exports) {
+},{"axios":"../node_modules/axios/index.js"}],"js/components/Skills.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30102,15 +30102,70 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+var Skills = function Skills() {
+  var _useState = (0, _react.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      arraySkills = _useState2[0],
+      setArraySkills = _useState2[1]; // useEffect() prepare la data pour ensuite etre affichee
+
+
+  (0, _react.useEffect)(function () {
+    _api.default.get("/skills/").then(function (response) {
+      console.log("+++++++Array skills+++++");
+      var skills = [];
+      response.data.data.forEach(function (element) {
+        skills.push(element);
+      });
+      setArraySkills(skills);
+    }); //   .catch();
+
+  }, []); //   const displaySkills = () => {
+  //     arraySkills.map((skill, index) => <li key={index}>{skill}</li>);
+  //   };
+
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Les Skills "), /*#__PURE__*/_react.default.createElement("p", null, "ici skills: ", arraySkills.length));
+};
+
+var _default = Skills;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","../utils/api":"js/utils/api.js"}],"js/pages/home.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _api = _interopRequireDefault(require("../utils/api"));
+
+var _Skills = _interopRequireDefault(require("../components/Skills"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 var Home = function Home(props) {
   var _useState = (0, _react.useState)(["Alex", "thibault", "clem", "elena", "jega", "julien", "lilan", "shelley", "rim"]),
       _useState2 = _slicedToArray(_useState, 2),
       padawans = _useState2[0],
-      setPadawans = _useState2[1];
+      setPadawans = _useState2[1]; // api.get("/skills/").then((response) => console.log(response));
 
-  _api.default.get("/skills/").then(function (response) {
-    return console.log(response);
-  });
 
   var getRandomArbitrary = function getRandomArbitrary(min, max) {
     min = Math.ceil(min);
@@ -30138,12 +30193,12 @@ var Home = function Home(props) {
   });
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Home"), /*#__PURE__*/_react.default.createElement("ul", null, listPadawans), /*#__PURE__*/_react.default.createElement("button", {
     onClick: randomList
-  }, " randam"));
+  }, " randam"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Skills.default, null));
 };
 
 var _default = Home;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../utils/api":"js/utils/api.js"}],"js/utils/local-storage.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../utils/api":"js/utils/api.js","../components/Skills":"js/components/Skills.js"}],"js/utils/local-storage.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34262,6 +34317,11 @@ var Register = function Register() {
       messageError = _useState14[0],
       setMessageError = _useState14[1];
 
+  var _useState15 = (0, _react.useState)(""),
+      _useState16 = _slicedToArray(_useState15, 2),
+      messageSuccess = _useState16[0],
+      setMessageSuccess = _useState16[1];
+
   var handelSubmit = function handelSubmit(event) {
     event.preventDefault();
     setIsLoading(true);
@@ -34275,14 +34335,13 @@ var Register = function Register() {
     _api.default.post("/padawans/register", body).then(function (response) {
       setSuccess(true);
     }).catch(function (error) {
-      console.log(error.response.data.message.sqlMessage);
       setMessageError(error.response.data.message.sqlMessage);
     }).finally(function () {
       setIsLoading(false);
     });
   };
 
-  return /*#__PURE__*/_react.default.createElement("div", null, success ? /*#__PURE__*/_react.default.createElement("span", null, "Vous etes bien enregistr\xE9") : /*#__PURE__*/_react.default.createElement("div", null, isLoading ? /*#__PURE__*/_react.default.createElement("span", null, "\"Enregistrement en cours...\"") : /*#__PURE__*/_react.default.createElement("form", {
+  return /*#__PURE__*/_react.default.createElement("div", null, success ? /*#__PURE__*/_react.default.createElement("span", null, messageSuccess && /*#__PURE__*/_react.default.createElement("span", null, messageSuccess)) : /*#__PURE__*/_react.default.createElement("div", null, isLoading ? /*#__PURE__*/_react.default.createElement("span", null, "\"Enregistrement en cours...\"") : /*#__PURE__*/_react.default.createElement("form", {
     onSubmit: handelSubmit
   }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("label", null, "Firstname"), /*#__PURE__*/_react.default.createElement("input", {
     onChange: function onChange(event) {
@@ -34392,7 +34451,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55250" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62517" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
