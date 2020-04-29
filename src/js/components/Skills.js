@@ -12,7 +12,6 @@ const Skills = () => {
     //   .catch();
   }, []);
   const [skills, setSkills] = useState([]);
-
   const displaySkills = arraySkills.map((skill, index) => (
     <li key={index}>{skill.id}</li>
   ));
