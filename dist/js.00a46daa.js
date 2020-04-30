@@ -34200,7 +34200,9 @@ var Header = function Header(props) {
 
   return /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("h1", null, props.title), /*#__PURE__*/_react.default.createElement("nav", null, /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/"
-  }, "Home")), props.padawan ? /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("span", null, props.padawan.first_name, " ", props.padawan.last_name), /*#__PURE__*/_react.default.createElement("button", {
+  }, "Home")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/test"
+  }, "Test")), props.padawan ? /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("span", null, props.padawan.first_name, " ", props.padawan.last_name), /*#__PURE__*/_react.default.createElement("button", {
     onClick: function onClick() {
       return logout();
     }
@@ -34347,7 +34349,122 @@ var Register = function Register(props) {
 
 var _default = Register;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../utils/api":"js/utils/api.js","../utils/local-storage":"js/utils/local-storage.js"}],"js/App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../utils/api":"js/utils/api.js","../utils/local-storage":"js/utils/local-storage.js"}],"js/components/note.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+var Note = function Note() {
+  return /*#__PURE__*/_react.default.createElement("div", null, "note");
+};
+
+var _default = Note;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"js/components/padawan.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+var Padawan = function Padawan(props) {
+  return /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("span", null, props.name), /*#__PURE__*/_react.default.createElement("button", {
+    onClick: function onClick() {
+      return props.handleClickPadawan(props.name);
+    }
+  }, "click me !"));
+};
+
+var _default = Padawan;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"js/pages/test.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _note = _interopRequireDefault(require("../components/note"));
+
+var _padawan = _interopRequireDefault(require("../components/padawan"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var notesData = [10, 12, 14, 8, 20, 5, 24];
+var padawansData = ["Alexandre", "Elena", "Thibault", "Clémence"];
+
+var Test = function Test(props) {
+  var _useState = (0, _react.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      notes = _useState2[0],
+      setNotes = _useState2[1];
+
+  var _useState3 = (0, _react.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      padawans = _useState4[0],
+      setPadawans = _useState4[1];
+
+  var _useState5 = (0, _react.useState)(null),
+      _useState6 = _slicedToArray(_useState5, 2),
+      currentPadawan = _useState6[0],
+      setCurrentPadawan = _useState6[1];
+
+  (0, _react.useEffect)(function () {
+    //S'effectue une seule fois
+    setNotes(notesData);
+    setPadawans(padawansData);
+  }, []);
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "flex flex-col"
+  }, /*#__PURE__*/_react.default.createElement("ul", null, padawans.map(function (padawan) {
+    return /*#__PURE__*/_react.default.createElement(_padawan.default, {
+      key: padawan,
+      name: padawan,
+      handleClickPadawan: setCurrentPadawan
+    });
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    className: "mt-4"
+  }, /*#__PURE__*/_react.default.createElement("span", null, currentPadawan)));
+};
+
+var _default = Test;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","../components/note":"js/components/note.js","../components/padawan":"js/components/padawan.js"}],"js/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34364,6 +34481,8 @@ var _login = _interopRequireDefault(require("./pages/login"));
 var _Header = _interopRequireDefault(require("./components/Header"));
 
 var _register = _interopRequireDefault(require("./pages/register"));
+
+var _test = _interopRequireDefault(require("./pages/test"));
 
 var _localStorage = require("./utils/local-storage");
 
@@ -34419,12 +34538,14 @@ var App = function App() {
   }, /*#__PURE__*/_react.default.createElement(_register.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     exact: true,
     path: "/"
-  }, /*#__PURE__*/_react.default.createElement(_home.default, null)))));
+  }, /*#__PURE__*/_react.default.createElement(_home.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    path: "/test"
+  }, /*#__PURE__*/_react.default.createElement(_test.default, null)))));
 };
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./pages/home":"js/pages/home.js","./pages/login":"js/pages/login.js","./components/Header":"js/components/Header.js","./pages/register":"js/pages/register.js","./utils/local-storage":"js/utils/local-storage.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"js/index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./pages/home":"js/pages/home.js","./pages/login":"js/pages/login.js","./components/Header":"js/components/Header.js","./pages/register":"js/pages/register.js","./pages/test":"js/pages/test.js","./utils/local-storage":"js/utils/local-storage.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"js/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -34466,7 +34587,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64287" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50162" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

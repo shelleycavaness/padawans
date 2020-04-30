@@ -16,6 +16,9 @@ const Header = (props) => {
           <li>
             <Link to="/">Home</Link>
           </li>
+          <li>
+            <Link to="/test">Test</Link>
+          </li>
           {props.padawan ? (
             <li>
               <span>

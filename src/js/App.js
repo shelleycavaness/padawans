@@ -3,6 +3,7 @@ import Home from "./pages/home";
 import Login from "./pages/login";
 import Header from "./components/Header";
 import Register from "./pages/register";
+import Test from "./pages/test";
 import { getPadawanLocalStorage } from "./utils/local-storage";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 const App = () => {
@@ -37,6 +38,9 @@ const App = () => {
           </Route>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route path="/test">
+            <Test />
           </Route>
         </Switch>
       </div>
