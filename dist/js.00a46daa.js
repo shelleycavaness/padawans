@@ -30124,7 +30124,7 @@ var Skills = function Skills() {
   var displaySkills = arraySkills.map(function (skill, index) {
     return /*#__PURE__*/_react.default.createElement("li", {
       key: index
-    }, skill.id);
+    }, skill.id, " ", skill.skill_name);
   });
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Les Skills "), /*#__PURE__*/_react.default.createElement("ul", null, " ", displaySkills));
 };
@@ -34454,7 +34454,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64541" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49257" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

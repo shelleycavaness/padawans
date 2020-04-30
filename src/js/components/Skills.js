@@ -13,12 +13,15 @@ const Skills = () => {
   }, []);
   const [skills, setSkills] = useState([]);
   const displaySkills = arraySkills.map((skill, index) => (
-    <li key={index}>{skill.id}</li>
+    <li key={index}>
+      {skill.id} {skill.skill_name}
+    </li>
   ));
 
   return (
     <div>
       <h1>Les Skills </h1>
+
       <ul> {displaySkills}</ul>
     </div>
   );
