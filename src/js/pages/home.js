@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import api from "../utils/api";
-import Skills from "../components/Skills";
+import Modules from "../components/modules";
 
 const Home = (props) => {
   return (
-    <div>
+    <div className="container">
       <h1>Home</h1>
-      <Skills />
+      <Modules />
     </div>
   );
 };

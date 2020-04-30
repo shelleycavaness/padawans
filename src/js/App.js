@@ -4,6 +4,7 @@ import Login from "./pages/login";
 import Header from "./components/Header";
 import Register from "./pages/register";
 import Exercices from "./pages/exercices";
+
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 const App = () => {
   return (

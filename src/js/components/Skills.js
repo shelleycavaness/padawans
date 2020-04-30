@@ -21,7 +21,6 @@ const Skills = () => {
   return (
     <div>
       <h1>Les Skills </h1>
-
       <ul> {displaySkills}</ul>
     </div>
   );
