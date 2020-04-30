@@ -30151,52 +30151,8 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 var Home = function Home(props) {
-  var _useState = (0, _react.useState)(["Alex", "thibault", "clem", "elena", "jega", "julien", "lilan", "shelley", "rim"]),
-      _useState2 = _slicedToArray(_useState, 2),
-      padawans = _useState2[0],
-      setPadawans = _useState2[1]; // api.get("/skills/").then((response) => console.log(response));
-
-
-  var getRandomArbitrary = function getRandomArbitrary(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  };
-
-  var randomList = function randomList() {
-    var arrayPadawans = padawans;
-    var result = [];
-
-    while (arrayPadawans.length > 0) {
-      var numberRand = getRandomArbitrary(1, arrayPadawans.length);
-      result.push(arrayPadawans[numberRand - 1]);
-      arrayPadawans.splice(numberRand - 1, 1);
-    }
-
-    setPadawans(result);
-  };
-
-  var listPadawans = padawans.map(function (padawan, index) {
-    return /*#__PURE__*/_react.default.createElement("li", {
-      key: index
-    }, padawan);
-  });
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Home"), /*#__PURE__*/_react.default.createElement("ul", null, listPadawans), /*#__PURE__*/_react.default.createElement("button", {
-    onClick: randomList
-  }, " randam"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Skills.default, null));
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Home"), /*#__PURE__*/_react.default.createElement(_Skills.default, null));
 };
 
 var _default = Home;
@@ -34377,7 +34333,77 @@ var Register = function Register() {
 
 var _default = Register;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../utils/api":"js/utils/api.js"}],"js/App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../utils/api":"js/utils/api.js"}],"js/pages/exercices.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _api = _interopRequireDefault(require("../utils/api"));
+
+var _Skills = _interopRequireDefault(require("../components/Skills"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var Exercices = function Exercices(props) {
+  var _useState = (0, _react.useState)(["Alex", "thibault", "clem", "elena", "jega", "julien", "lilan", "shelley", "rim"]),
+      _useState2 = _slicedToArray(_useState, 2),
+      padawans = _useState2[0],
+      setPadawans = _useState2[1]; // api.get("/skills/").then((response) => console.log(response));
+
+
+  var getRandomArbitrary = function getRandomArbitrary(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+
+  var randomList = function randomList() {
+    var arrayPadawans = padawans;
+    var result = [];
+
+    while (arrayPadawans.length > 0) {
+      var numberRand = getRandomArbitrary(1, arrayPadawans.length);
+      result.push(arrayPadawans[numberRand - 1]);
+      arrayPadawans.splice(numberRand - 1, 1);
+    }
+
+    setPadawans(result);
+  };
+
+  var listPadawans = padawans.map(function (padawan, index) {
+    return /*#__PURE__*/_react.default.createElement("li", {
+      key: index
+    }, padawan);
+  });
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Exercices"), /*#__PURE__*/_react.default.createElement("ul", null, listPadawans), /*#__PURE__*/_react.default.createElement("button", {
+    onClick: randomList
+  }, " randam"));
+};
+
+var _default = Exercices;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","../utils/api":"js/utils/api.js","../components/Skills":"js/components/Skills.js"}],"js/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34395,6 +34421,8 @@ var _Header = _interopRequireDefault(require("./components/Header"));
 
 var _register = _interopRequireDefault(require("./pages/register"));
 
+var _exercices = _interopRequireDefault(require("./pages/exercices"));
+
 var _reactRouterDom = require("react-router-dom");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -34403,6 +34431,8 @@ var App = function App() {
   return /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/login"
   }, /*#__PURE__*/_react.default.createElement(_login.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    path: "/exercices"
+  }, /*#__PURE__*/_react.default.createElement(_exercices.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/register"
   }, /*#__PURE__*/_react.default.createElement(_register.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     exact: true,
@@ -34412,7 +34442,7 @@ var App = function App() {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./pages/home":"js/pages/home.js","./pages/login":"js/pages/login.js","./components/Header":"js/components/Header.js","./pages/register":"js/pages/register.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"js/index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./pages/home":"js/pages/home.js","./pages/login":"js/pages/login.js","./components/Header":"js/components/Header.js","./pages/register":"js/pages/register.js","./pages/exercices":"js/pages/exercices.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"js/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -34454,7 +34484,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49257" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62776" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
