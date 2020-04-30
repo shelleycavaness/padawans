@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import api from "../utils/api";
-import Skills from "../components/Skills";
+import Skills from "../components/skills/Skills";
 
 const Exercices = (props) => {
   const [padawans, setPadawans] = useState([

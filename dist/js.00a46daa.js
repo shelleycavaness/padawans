@@ -30139,12 +30139,12 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"css/style.css":[function(require,module,exports) {
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"js/components/modules/modules.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/components/modules.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/components/modules/modules.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30154,9 +30154,9 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _api = _interopRequireDefault(require("../utils/api"));
+var _api = _interopRequireDefault(require("../../utils/api"));
 
-require("../../css/style.css");
+require("./modules.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30180,40 +30180,71 @@ var Modules = function Modules() {
   var _useState = (0, _react.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       arrayModules = _useState2[0],
-      setArrayModules = _useState2[1]; // useEffect() prepare la data pour ensuite etre affichee
-
-
-  (0, _react.useEffect)(function () {
-    _api.default.get("/modules/").then(function (response) {
-      setArrayModules(response.data.data);
-    }); //   .catch();
-
-  }, []);
+      setArrayModules = _useState2[1];
 
   var _useState3 = (0, _react.useState)([]),
       _useState4 = _slicedToArray(_useState3, 2),
-      modules = _useState4[0],
-      setModules = _useState4[1];
+      arraySkills = _useState4[0],
+      setArraySkills = _useState4[1]; // useEffect() prepare la data pour ensuite etre affichee
+  // useEffect(() => {
+  //   api.get("/modules/").then((modulesResponse) => {
+  //     // setArrayModules(moduleResponse.data.data);
+  //     let modules = modulesResponse.data.data;
+  //     let modulesWithSkills = [];
+  //     let x = 0;
+  //     modules.forEach((module) => {
+  //       api.get("/skills/module/" + module.id).then((skillsResponse) => {
+  //         let skills = skillsResponse.data.data;
+  //         let moduleWithSkills = { ...module, skills: skills };
+  //         modulesWithSkills.push(moduleWithSkills);
+  //         x++;
+  //         if (x === modules.length) {
+  //           setArrayModules(modulesWithSkills);
+  //         }
+  //       });
+  //     });
+  //   });
+  // }, []);
+
+
+  (0, _react.useEffect)(function () {
+    _api.default.get("/modules/skills/").then(function (modulesResponse) {});
+  });
+  console.log(arrayModules); // const getSkillsByModules = (idModule) => {
+  //   api.get("/skills/module/" + idModule).then((response) => {
+  //     setArraySkills(response.data.data);
+  //     console.log("-----------");
+  //     console.log(arraySkills);
+  //   });
+  // };
+
+  var _useState5 = (0, _react.useState)([]),
+      _useState6 = _slicedToArray(_useState5, 2),
+      modules = _useState6[0],
+      setModules = _useState6[1];
 
   var displayModules = arrayModules.map(function (module, index) {
-    return /*#__PURE__*/_react.default.createElement("li", {
-      key: index
-    }, module.module_name);
+    return /*#__PURE__*/_react.default.createElement("div", {
+      key: index,
+      className: "col-md-4  col-sm-12  my-sm-3 "
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "card "
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "card-body"
+    }, /*#__PURE__*/_react.default.createElement("h5", {
+      className: "card-title"
+    }, module.module_name)), /*#__PURE__*/_react.default.createElement("div", {
+      className: "card-footer"
+    }, "competences")));
   });
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
-    className: "card"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "card-body"
-  }, /*#__PURE__*/_react.default.createElement("h5", {
-    className: "card-title"
-  }, "Module name")), /*#__PURE__*/_react.default.createElement("div", {
-    className: "card-footer"
-  }, "nombre de competence et le bouton pour voir les competence")), /*#__PURE__*/_react.default.createElement("ul", null, " ", displayModules));
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "row"
+  }, displayModules);
 };
 
 var _default = Modules;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../utils/api":"js/utils/api.js","../../css/style.css":"css/style.css"}],"js/pages/home.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../../utils/api":"js/utils/api.js","./modules.css":"js/components/modules/modules.css"}],"js/pages/home.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30225,7 +30256,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _api = _interopRequireDefault(require("../utils/api"));
 
-var _modules = _interopRequireDefault(require("../components/modules"));
+var _modules = _interopRequireDefault(require("../components/modules/modules"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30241,7 +30272,7 @@ var Home = function Home(props) {
 
 var _default = Home;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../utils/api":"js/utils/api.js","../components/modules":"js/components/modules.js"}],"js/utils/local-storage.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../utils/api":"js/utils/api.js","../components/modules/modules":"js/components/modules/modules.js"}],"js/utils/local-storage.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34417,7 +34448,7 @@ var Register = function Register() {
 
 var _default = Register;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../utils/api":"js/utils/api.js"}],"js/components/Skills.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../utils/api":"js/utils/api.js"}],"js/components/skills/Skills.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34427,7 +34458,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _api = _interopRequireDefault(require("../utils/api"));
+var _api = _interopRequireDefault(require("../../utils/api"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34447,6 +34478,7 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+// import "./skills.css";
 var Skills = function Skills() {
   var _useState = (0, _react.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
@@ -34471,12 +34503,23 @@ var Skills = function Skills() {
       key: index
     }, skill.id, " ", skill.skill_name);
   });
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Les Skills "), /*#__PURE__*/_react.default.createElement("ul", null, " ", displaySkills));
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Les Skills "), /*#__PURE__*/_react.default.createElement("div", {
+    key: index,
+    className: "col-md-4  col-sm-12  my-sm-3 "
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "card "
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "card-body"
+  }, /*#__PURE__*/_react.default.createElement("h5", {
+    className: "card-title"
+  }, skill.skill_name)), /*#__PURE__*/_react.default.createElement("div", {
+    className: "card-footer"
+  }, displaySkills.length, " competences"))));
 };
 
 var _default = Skills;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../utils/api":"js/utils/api.js"}],"js/pages/exercices.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../../utils/api":"js/utils/api.js"}],"js/pages/exercices.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34488,7 +34531,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _api = _interopRequireDefault(require("../utils/api"));
 
-var _Skills = _interopRequireDefault(require("../components/Skills"));
+var _Skills = _interopRequireDefault(require("../components/skills/Skills"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34546,7 +34589,7 @@ var Exercices = function Exercices(props) {
 
 var _default = Exercices;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../utils/api":"js/utils/api.js","../components/Skills":"js/components/Skills.js"}],"js/App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../utils/api":"js/utils/api.js","../components/skills/Skills":"js/components/skills/Skills.js"}],"js/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34634,7 +34677,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59953" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53079" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

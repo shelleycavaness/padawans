@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import api from "../utils/api";
-import Modules from "../components/modules";
+import Modules from "../components/modules/modules";
 
 const Home = (props) => {
   return (
