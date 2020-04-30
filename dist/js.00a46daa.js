@@ -30206,17 +30206,9 @@ var Modules = function Modules() {
     className: "card-body"
   }, /*#__PURE__*/_react.default.createElement("h5", {
     className: "card-title"
-  }, "Card title"), /*#__PURE__*/_react.default.createElement("h6", {
-    className: "card-subtitle mb-2 text-muted"
-  }, "Card subtitle"), /*#__PURE__*/_react.default.createElement("p", {
-    className: "card-text"
-  }, "Some quick example text to build on the card title and make up the bulk of the card's content."), /*#__PURE__*/_react.default.createElement("a", {
-    href: "#",
-    className: "card-link"
-  }, "Card link"), /*#__PURE__*/_react.default.createElement("a", {
-    href: "#",
-    className: "card-link"
-  }, "Another link"))), /*#__PURE__*/_react.default.createElement("ul", null, " ", displayModules));
+  }, "Module name")), /*#__PURE__*/_react.default.createElement("div", {
+    className: "card-footer"
+  }, "nombre de competence et le bouton pour voir les competence")), /*#__PURE__*/_react.default.createElement("ul", null, " ", displayModules));
 };
 
 var _default = Modules;
