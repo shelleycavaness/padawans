@@ -13,7 +13,6 @@ const Modules = () => {
       let modules = modulesResponse.data.data;
       let modulesWithSkills = [];
       let x = 0;
-
       modules.forEach((module) => {
         api.get("/skills/module/" + module.id).then((skillsResponse) => {
           let skills = skillsResponse.data.data;
@@ -27,7 +26,19 @@ const Modules = () => {
           }
         });
       });
+      console.log('-----------------',modules)
+      let myModuleIndex= modules.map(item => console.log(item.id_modules))
     });
+
+    api.get("/modules/skills/all").then((skillsReponse) =>{
+      let skillsList = skillsReponse.data.data;
+      // console.log('my skills data +++++++++++++++', skillsList)
+      let resultMaps = skillsList.map(item => item.skill_name)
+      let skillModule = skillsList.map( item => item.id_modules)
+      // console.log(skillModule)
+      setArraySkills(resultMaps)
+     
+    })
   }, []);
   // useEffect(() => {
   //   api.get("/modules/").then((modulesResponse) => {
@@ -35,7 +46,7 @@ const Modules = () => {
   //   });
   // });
 
-  console.log(arrayModules);
+  //console.log(arrayModules);
 
   // const getSkillsByModules = (idModule) => {
   //   api.get("/skills/module/" + idModule).then((response) => {
@@ -51,6 +62,12 @@ const Modules = () => {
       <div className="card ">
         <div className="card-body">
           <h5 className="card-title">{module.module_name}</h5>
+          <ul>
+            { 
+           
+              /* console.log('my skills data ================', arraySkills) */
+              }
+          </ul>
         </div>
         <div className="card-footer">competences</div>
       </div>
