@@ -10,8 +10,8 @@ const Query = {
       });
     });
   },
-  getById: id => {
-    let sqlQuery = `SELECT modules.module_name, skills.skill_name FROM skills,modules WHERE skills.modules_id = modules.id AND skills.id=?`;
+  getById: (id) => {
+    let sqlQuery = `SELECT modules.module_name, skills.skill_name FROM skills,modules WHERE skills.modules_id = modules.id_modules AND skills.id_skills=?`;
     return new Promise((resolve, reject) => {
       db.query(sqlQuery, [id], (err, rows) => {
         if (err) reject(err);
@@ -19,11 +19,11 @@ const Query = {
       });
     });
   },
-  getByModule: id => {
+  getByModule: (id) => {
     let sqlQuery = `
-    SELECT skills.modules_id,modules.module_name, skills.id,skills.skill_name
+    SELECT skills.modules_id,modules.module_name, skills.id_skills,skills.skill_name
      FROM skills,modules 
-     WHERE skills.modules_id=?AND skills.modules_id=modules.id`;
+     WHERE skills.modules_id=?AND skills.modules_id=modules.id_modules`;
     return new Promise((resolve, reject) => {
       db.query(sqlQuery, [id], (err, rows) => {
         if (err) reject(err);
@@ -31,18 +31,18 @@ const Query = {
       });
     });
   },
-  getPadawans: id => {
+  getPadawans: (id) => {
     let sqlQuery = `
       SELECT padawans.first_name, padawans.last_name, skills.skill_name,levels.level_name
       FROM padawans_has_skills, padawans, skills,levels
       WHERE padawans_has_skills.skills_id=?
       AND
-      padawans_has_skills.padawans_id=padawans.id
+      padawans_has_skills.padawans_id=padawans.id_padawans
       AND 
-      skills.id=?
+      skills.id_skills=?
       AND 
-      padawans_has_skills.levels_id=levels.id
-      ORDER BY levels.id 
+      padawans_has_skills.levels_id=levels.id_levels
+      ORDER BY levels.id_levels 
      
        `;
 
@@ -52,7 +52,7 @@ const Query = {
         resolve(rows);
       });
     });
-  }
+  },
 };
 
 export default Query;

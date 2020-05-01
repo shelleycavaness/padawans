@@ -12,8 +12,7 @@ const ModuleController = {
       .then((result) => res.status(result.status).send(result.payload))
       .catch((error) => res.status(500).send(error));
   },
-  getAllSkills: (req, res) => {
-    console.log("icbbbbbbbi");
+  getSkills: (req, res) => {
     ModuleService.getSkills()
       .then((result) => res.status(result.status).send(result.payload))
       .catch((err) => res.status("400").send(err));

@@ -6,32 +6,34 @@ const Modules = () => {
   const [arrayModules, setArrayModules] = useState([]);
   const [arraySkills, setArraySkills] = useState([]);
 
-  // useEffect() prepare la data pour ensuite etre affichee
+  //useEffect() prepare la data pour ensuite etre affichee
+  useEffect(() => {
+    api.get("/modules/").then((modulesResponse) => {
+      // setArrayModules(moduleResponse.data.data);
+      let modules = modulesResponse.data.data;
+      let modulesWithSkills = [];
+      let x = 0;
+
+      modules.forEach((module) => {
+        api.get("/skills/module/" + module.id).then((skillsResponse) => {
+          let skills = skillsResponse.data.data;
+          let moduleWithSkills = { ...module, skills: skills };
+
+          modulesWithSkills.push(moduleWithSkills);
+          x++;
+
+          if (x === modules.length) {
+            setArrayModules(modulesWithSkills);
+          }
+        });
+      });
+    });
+  }, []);
   // useEffect(() => {
   //   api.get("/modules/").then((modulesResponse) => {
-  //     // setArrayModules(moduleResponse.data.data);
-  //     let modules = modulesResponse.data.data;
-  //     let modulesWithSkills = [];
-  //     let x = 0;
 
-  //     modules.forEach((module) => {
-  //       api.get("/skills/module/" + module.id).then((skillsResponse) => {
-  //         let skills = skillsResponse.data.data;
-  //         let moduleWithSkills = { ...module, skills: skills };
-
-  //         modulesWithSkills.push(moduleWithSkills);
-  //         x++;
-
-  //         if (x === modules.length) {
-  //           setArrayModules(modulesWithSkills);
-  //         }
-  //       });
-  //     });
   //   });
-  // }, []);
-  useEffect(() => {
-    api.get("/modules/skills/").then((modulesResponse) => {});
-  });
+  // });
 
   console.log(arrayModules);
 

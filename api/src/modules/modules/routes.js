@@ -5,7 +5,6 @@ const router = express.Router();
 
 router.get("/", ModuleController.getAll);
 router.get("/:id", ModuleController.getById);
-router.get("/test", ModuleController.getAllSkills);
+router.get("/skills/all", ModuleController.getSkills);
 
 export default router;
-// http://localhost:3010/api/modules/
