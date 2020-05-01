@@ -2,7 +2,6 @@ import ModuleService from "./service";
 
 const ModuleController = {
   getAll: (req, res) => {
-    console.log("all");
     ModuleService.getAll()
       .then((result) => res.status(result.status).send(result.payload))
       .catch((err) => res.status("400").send(err));
