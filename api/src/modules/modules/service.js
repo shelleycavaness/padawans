@@ -1,7 +1,4 @@
 import moduleQueries from "./query";
-import brcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-import config from "../../config/server";
 
 const ModuleService = {
   getAll: async () => {
@@ -17,16 +14,16 @@ const ModuleService = {
       }));
   },
   getSkills: async () => {
-    return moduleQueries
-      .getSkills()
-      .then((response) => ({
-        status: 200,
-        payload: { success: true, data: response },
-      }))
-      .catch((err) => ({
-        status: 400,
-        payload: { success: false, message: err },
-      }));
+    let modulesWithSkills = await moduleQueries.getSkills();
+    let moduleReduce = modulesWithSkills.reduce((tab, element) => {
+      tab[element.id_modules] = [...(tab[element.id_modules] || []), element];
+      return tab;
+    }, {});
+
+    return {
+      status: 200,
+      payload: { success: true, data: moduleReduce },
+    };
   },
 
   getById: async (id) => {
