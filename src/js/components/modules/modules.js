@@ -26,18 +26,23 @@ const Modules = () => {
           }
         });
       });
-      console.log('-----------------',modules)
-      let myModuleIndex= modules.map(item => console.log(item.id_modules))
+      //  console.log('-------modules----------', modules)
+    //  let myModuleIndex= modules.map(item => console.log('item.id_modules____________', item.id_modules))
     });
 
     api.get("/modules/skills/all").then((skillsReponse) =>{
-      let skillsList = skillsReponse.data.data;
-      // console.log('my skills data +++++++++++++++', skillsList)
-      let resultMaps = skillsList.map(item => item.skill_name)
-      let skillModule = skillsList.map( item => item.id_modules)
-      // console.log(skillModule)
+      let skillsListData = skillsReponse.data.data;
+  
+      let resultMaps = skillsListData.map(item => 'name :   '+item.skill_name)
+      let skillModule = skillsListData.map( item => item.id_modules)
+       console.log('3888888888888888888',skillModule[3])
+       if(skillModule[3] == 3 && module.id_modules ==3 ){
+         console.log(`MY module number ${skillModule[3]}`)
+        } else{
+          console.log(modules.id_modules)
+        }
       setArraySkills(resultMaps)
-     
+     console.log('*******************************8',arrayModules)
     })
   }, []);
   // useEffect(() => {
@@ -46,13 +51,11 @@ const Modules = () => {
   //   });
   // });
 
-  //console.log(arrayModules);
 
   // const getSkillsByModules = (idModule) => {
   //   api.get("/skills/module/" + idModule).then((response) => {
   //     setArraySkills(response.data.data);
-  //     console.log("-----------");
-  //     console.log(arraySkills);
+  
   //   });
   // };
 
@@ -65,7 +68,7 @@ const Modules = () => {
           <ul>
             { 
            
-              /* console.log('my skills data ================', arraySkills) */
+             
               }
           </ul>
         </div>
@@ -78,3 +81,9 @@ const Modules = () => {
 };
 
 export default Modules;
+
+
+ /* console.log('my skills data ================', arraySkills) */
+ //     console.log("-----------");
+  //     console.log(arraySkills);
+      // console.log('my skills data ===================', skillsListData)
