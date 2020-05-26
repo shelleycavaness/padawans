@@ -1,4 +1,6 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Header from "./components/Header";
@@ -7,6 +9,7 @@ import Exercices from "./pages/exercices";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 const App = () => {
+  const dispatch = useDispatch();
   return (
     <Router>
       <div>
