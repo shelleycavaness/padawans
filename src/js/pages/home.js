@@ -21,7 +21,9 @@ const Home = () => {
     <section>
       <h1>Home</h1>
       {modulesCollection &&
-        modulesCollection.map((item) => <span key={item.id}>{item.name}</span>)}
+        modulesCollection.map((item) => (
+          <span key={item.id_modules}>{item.module_name}</span>
+        ))}
       <button onClick={() => dispatch({ type: "CLEAR_MODULES" })}>
         {" "}
         Clear modules{" "}
