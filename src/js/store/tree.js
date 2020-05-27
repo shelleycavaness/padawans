@@ -56,7 +56,6 @@ const modules = (state = modulesInitialState, action) => {
 const treeReducer = combineReducers({
 	modules,
 
-	name,
 });
 
 export default treeReducer;
