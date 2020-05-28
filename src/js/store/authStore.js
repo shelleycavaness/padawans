@@ -1,8 +1,6 @@
-import { combineReducer } from 'redux';
+import { combineReducers } from 'redux';
 import api, { addAuth } from '../utils/api';
 import { setPadawanLocalStorage } from '../utils/local-storage';
-
-
 //email, password viennent du form declanché par le btn submit
 export const connectUser =(email, password ) => {
   return dispatch =>{
@@ -86,10 +84,10 @@ const isLoading = (state = false, action) => {
     }
 };
 
-const authReducer = combineReducer({
+const authReducer = combineReducers({
   token,
   padawan,
-  isLoading
+  isLoading,
 })
 
 export default authReducer;
