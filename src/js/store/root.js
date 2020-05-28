@@ -2,10 +2,13 @@
 // un reducer= un fichier contenant variable globale
 import { combineReducers } from "redux";
 import modulestore from "./modulestore";
-import skillStore from "./skillStore"
+import skillStore from "./skillStore";
+import authStore from "./authStore";
+
 const createRootReducer = combineReducers({
     modulestore,
-    skillStore
+    skillStore,
+    authStore,
 });
 
 export default createRootReducer;
