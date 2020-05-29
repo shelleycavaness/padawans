@@ -8,14 +8,13 @@ const Login = (props) => {
   const dispatch = useDispatch();
   const token=useSelector((state)=> state.authStore.token )
   const padawan=useSelector((state)=> state.authStore.padawan )
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState(null);
 
-  console.log("email: ", email);
-  console.log("password: ", password);
+  // console.log("email: ", email);
+  // console.log("password: ", password);
 
   const handleSubmit = (event) => {
     setIsLoading(true);
@@ -27,9 +26,13 @@ const Login = (props) => {
     /*api remplace axios.create({
   baseURL: "http://localhost:3010/api",
 })*/
-dispatch(connectUser(email, password).then(() => {
-  setMessage("success connexion")
-}).catch(()=>setMessage(error)).finally(()=>{ setIsLoading(false);})) 
+dispatch(connectUser(email, password))
+  .then(() => {
+    setMessage("success connexion")
+  })
+  .catch((error)=>setMessage(error))
+  .finally(()=>{ setIsLoading(false);
+  }) 
 // api
     //   .post("/padawans/authenticate", body)
     //   .then((response) => {

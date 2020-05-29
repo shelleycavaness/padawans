@@ -8,7 +8,7 @@ import authStore from "./authStore";
 const createRootReducer = combineReducers({
     modulestore,
     skillStore,
-    authStore
+    authStore,
 
 });
 

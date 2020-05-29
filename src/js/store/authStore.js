@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import api, { addAuth } from '../utils/api';
-import { setPadawanLocalStorage } from '../utils/local-storage';
+import { setPadawanLocalStorage,getPadawanLocalStorage } from '../utils/local-storage';
 //email, password viennent du form declanché par le btn submit
 export const connectUser =(email, password ) => {
   return dispatch =>{
@@ -8,21 +8,21 @@ export const connectUser =(email, password ) => {
     return api
       .post('/padawans/authenticate/', { email, password } )
       .then(response => {
-        let result = response.data.data;
-        console.log("result :  ", result)
+        
+        let dataResAxios = response.data; //la data de reponse d'axios
 
-        console.log("token: ", result.token)
+       console.log("*************response de axios: ", response)
 
-        console.log("padawan: ", result.padawan)
+        // console.log("padawan: ", result.padawan)
     //si success du back est true - user correctly authenticated (fichier padawans/service back)
-        if(result && result.success ){  
-          addAuth(result.token)
-          setPadawanLocalStorage(result);
+        if(dataResAxios && dataResAxios.success ){  
+          addAuth(dataResAxios.data.token)
+          setPadawanLocalStorage(dataResAxios.data);
+         // console.log("apres: ", getPadawanLocalStorage());
           dispatch({ type: "SET_STORAGE" });
-          dispatch({ type: "SET_AUTH_TOKEN",  payload: result.token })
-          dispatch({ type: "SET_AUTH_PADAWAN",  payload: result.padawan })
+          dispatch({ type: "SET_AUTH_TOKEN",  payload: dataResAxios.data.token })
+          dispatch({ type: "SET_AUTH_PADAWAN",  payload: dataResAxios.data.padawan })
           dispatch({ type: "SUCCESS_CONNEXION" })
-
         }
      })
      .catch( error =>{

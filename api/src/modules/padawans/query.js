@@ -46,7 +46,7 @@ const Query = {
     return new Promise((resolve, reject) => {
       db.query(sqlQuery, [email], (err, rows) => {
         if (err) reject(err);
-        resolve(rows);
+        resolve(rows[0]);
       });
     });
   },

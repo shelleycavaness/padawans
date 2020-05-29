@@ -1,11 +1,11 @@
-export const setPadawanLocalStorage = (user) => {
-  return window.localStorage.setItem("user", JSON.stringify(user));
+export const setPadawanLocalStorage = (padawan) => {
+  return window.localStorage.setItem("padawan", JSON.stringify(padawan));
 };
 
 export const getPadawanLocalStorage = () => {
-  return JSON.parse(window.localStorage.getItem("user"));
+  return JSON.parse(window.localStorage.getItem("padawan"));
 };
 
 export const clearPadawanLocalStorage = () => {
-  window.localStorage.removeItem("user");
+  window.localStorage.removeItem("padawan");
 };
